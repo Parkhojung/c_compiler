@@ -458,3 +458,11 @@ void syntax_error(int i,char *s) {
     else
         printf(" near %s\n", yytext);
 }
+
+BOOLEAN isPointerOrArrayType(A_TYPE * a_type){
+    
+    if(a_type->kind == T_POINTER || a_type->kind == T_ARRAY)
+        return 1;
+    else
+        return 0;
+}
