@@ -1,8 +1,19 @@
-all: y.tab.c lex.yy.c main.c syntax.c print.c
-	cc y.tab.c lex.yy.c main.c syntax.c print.c
+CC = cc
+LIBS = -ll
+LEX = lex
+YACC = yacc
+CFLAGS = -DYYDEBUG=1
+all: program
+
+program: y.tab.c lex.yy.c
+	$(CC) -o program y.tab.c lex.yy.c print.c main.c syntax.c $(LIBS)
+y.tab.c: parse.y
+	$(YACC) -d parse.y
+lex.yy.c : scan.l
+	$(LEX) scan.l
 
 .PHONY: all clean test
 
 clean:
-	-rm -f a.out *.txt *.bak core*
+	-rm -f program lex.* y.* *.txt *.bak core*
 
