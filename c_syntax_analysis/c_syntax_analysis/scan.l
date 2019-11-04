@@ -104,7 +104,7 @@ int checkIdentifier(char *s) {
         return(TYPE_IDENTIFIER);
     }
     else{
-        yylavl=id->name;
+        yylval=id->name;
         return(IDENTIFIER);
     }
 }

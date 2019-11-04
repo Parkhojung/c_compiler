@@ -2146,6 +2146,27 @@ int checkIdentifier(char *s) {
     // 이름의 종류가 typedef 로 정의한 이름인 경우는
     // TYPE_IDENTIFIER 로 결정, yylval 은 그 타입 포인터
     // 아닌 경우는 IDENTIFIER 로 결정, yylval 은 그 이름 스트링 포인터
+    
+    A_ID *id;
+    char *t;
+    id = current_id;
+    while(id){
+        if(strcmp(id->name, s)==0)
+            break;
+        id = id->prev;
+    }
+    if(id==0){
+        yylval=makeString(s);
+        return(IDENTIFIER);
+    }
+    else if(id->kind==ID_TYPE){
+        yylval=id->type;
+        return(TYPE_IDENTIFIER);
+    }
+    else{
+        yylval=id->name;
+        return(IDENTIFIER);
+    }
 }
 
 int yywrap() {
