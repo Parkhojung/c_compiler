@@ -6,6 +6,7 @@
 //  Copyright © 2019 PARKHOJUNG. All rights reserved.
 //
 
+#include <stdio.h>
 #include "type.h"
 char * node_name[] = {
     "N_NULL",

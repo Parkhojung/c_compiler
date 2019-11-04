@@ -8,7 +8,9 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "type.h"
+
 extern int syntax_err;
 extern A_NODE *root;
 extern FILE *yyin;

@@ -87,3 +87,12 @@ int checkIdentifier(char *s) {
     // TYPE_IDENTIFIER 로 결정, yylval 은 그 타입 포인터
     // 아닌 경우는 IDENTIFIER 로 결정, yylval 은 그 이름 스트링 포인터
 }
+
+int yywrap() {
+   // open next reference or source file and start scanning
+   //if((yyin = compiler->getNextFile()) != NULL) {
+   //   line = 0; // reset line counter for next source file
+   //   return 0;
+   //}
+   return 1;
+}

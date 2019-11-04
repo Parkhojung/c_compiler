@@ -6,8 +6,6 @@
 //  Copyright © 2019 PARKHOJUNG. All rights reserved.
 //
 
-#include <stdio.h>
-
 int main(){
     
     int a;
