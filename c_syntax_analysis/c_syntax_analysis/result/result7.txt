@@ -1,4 +1,4 @@
-=========created at Tue Nov  5 16:22:21 UTC 2019========
+=========created at Tue Nov  5 16:23:25 UTC 2019========
 ./input/input07.c is used
 ./result/result7.txt is saved
 =========input07.c start==========
