@@ -1,4 +1,7 @@
-------input08.c start---------
+=========created at Tue Nov  5 16:22:21 UTC 2019========
+./input/input08.c is used
+./result/result8.txt is saved
+=========input08.c start==========
 int main(int argc, char **argv){
 
 	int a;
@@ -21,18 +24,20 @@ int main(int argc, char **argv){
 	}
 
 }
+=========input08.c end============
+=========program ./input/input08.c start======
 
 start syntax analysis
 ======= syntax tree ==========
 N_PROGRAM (0,0)
-| (ID="main") TYPE:1986ad0 KIND:FUNC SPEC=NULL LEV=0 VAL=0 ADDR=0 
+| (ID="main") TYPE:232aad0 KIND:FUNC SPEC=NULL LEV=0 VAL=0 ADDR=0 
 | | TYPE
 | | | FUNCTION
 | | | | PARAMETER
-| | | | | (ID="argc") TYPE:19812a0 KIND:PARM SPEC=NULL LEV=1 VAL=0 ADDR=0 
+| | | | | (ID="argc") TYPE:23252a0 KIND:PARM SPEC=NULL LEV=1 VAL=0 ADDR=0 
 | | | | | | TYPE
 | | | | | | | (int)
-| | | | | (ID="argv") TYPE:1986a00 KIND:PARM SPEC=NULL LEV=1 VAL=0 ADDR=0 
+| | | | | (ID="argv") TYPE:232aa00 KIND:PARM SPEC=NULL LEV=1 VAL=0 ADDR=0 
 | | | | | | TYPE
 | | | | | | | POINTER
 | | | | | | | | ELEMENT_TYPE
@@ -43,37 +48,38 @@ N_PROGRAM (0,0)
 | | | | | (int)
 | | | | BODY
 | | | | | N_STMT_COMPOUND (0,0)
-| | | | | | (ID="a") TYPE:19812a0 KIND:VAR SPEC=AUTO LEV=1 VAL=0 ADDR=0 
+| | | | | | (ID="a") TYPE:23252a0 KIND:VAR SPEC=AUTO LEV=1 VAL=0 ADDR=0 
 | | | | | | | TYPE
 | | | | | | | | (int)
-| | | | | | (ID="b") TYPE:19812a0 KIND:VAR SPEC=AUTO LEV=1 VAL=0 ADDR=0 
+| | | | | | (ID="b") TYPE:23252a0 KIND:VAR SPEC=AUTO LEV=1 VAL=0 ADDR=0 
 | | | | | | | TYPE
 | | | | | | | | (int)
 | | | | | | N_STMT_LIST (0,0)
 | | | | | | | N_STMT_COMPOUND (0,0)
-| | | | | | | | (ID="c") TYPE:19812a0 KIND:VAR SPEC=AUTO LEV=2 VAL=0 ADDR=0 
+| | | | | | | | (ID="c") TYPE:23252a0 KIND:VAR SPEC=AUTO LEV=2 VAL=0 ADDR=0 
 | | | | | | | | | TYPE
 | | | | | | | | | | (int)
-| | | | | | | | (ID="d") TYPE:19812a0 KIND:VAR SPEC=AUTO LEV=2 VAL=0 ADDR=0 
+| | | | | | | | (ID="d") TYPE:23252a0 KIND:VAR SPEC=AUTO LEV=2 VAL=0 ADDR=0 
 | | | | | | | | | TYPE
 | | | | | | | | | | (int)
 | | | | | | | | N_STMT_LIST_NIL (0,0)
 | | | | | | | N_STMT_LIST (0,0)
 | | | | | | | | N_STMT_COMPOUND (0,0)
-| | | | | | | | | (ID="a") TYPE:19812a0 KIND:VAR SPEC=AUTO LEV=2 VAL=0 ADDR=0 
+| | | | | | | | | (ID="a") TYPE:23252a0 KIND:VAR SPEC=AUTO LEV=2 VAL=0 ADDR=0 
 | | | | | | | | | | TYPE
 | | | | | | | | | | | (int)
-| | | | | | | | | (ID="b") TYPE:19812a0 KIND:VAR SPEC=AUTO LEV=2 VAL=0 ADDR=0 
+| | | | | | | | | (ID="b") TYPE:23252a0 KIND:VAR SPEC=AUTO LEV=2 VAL=0 ADDR=0 
 | | | | | | | | | | TYPE
 | | | | | | | | | | | (int)
 | | | | | | | | | N_STMT_LIST_NIL (0,0)
 | | | | | | | | N_STMT_LIST (0,0)
 | | | | | | | | | N_STMT_COMPOUND (0,0)
-| | | | | | | | | | (ID="c") TYPE:19812a0 KIND:VAR SPEC=AUTO LEV=2 VAL=0 ADDR=0 
+| | | | | | | | | | (ID="c") TYPE:23252a0 KIND:VAR SPEC=AUTO LEV=2 VAL=0 ADDR=0 
 | | | | | | | | | | | TYPE
 | | | | | | | | | | | | (int)
-| | | | | | | | | | (ID="d") TYPE:19812a0 KIND:VAR SPEC=AUTO LEV=2 VAL=0 ADDR=0 
+| | | | | | | | | | (ID="d") TYPE:23252a0 KIND:VAR SPEC=AUTO LEV=2 VAL=0 ADDR=0 
 | | | | | | | | | | | TYPE
 | | | | | | | | | | | | (int)
 | | | | | | | | | | N_STMT_LIST_NIL (0,0)
 | | | | | | | | | N_STMT_LIST_NIL (0,0)
+=========program ./input/input08.c end========

@@ -1,3 +1,7 @@
+=========created at Tue Nov  5 16:22:21 UTC 2019========
+./input/input07.c is used
+./result/result7.txt is saved
+=========input07.c start==========
 int main() {
   int values[5];
 //  printf("Enter 5 integers: ");
@@ -13,3 +17,9 @@ int main() {
   }
   return 0;
 }
+=========input07.c end============
+=========program ./input/input07.c start======
+
+start syntax analysis
+line 6: syntax error near int 
+=========program ./input/input07.c end========

@@ -1,7 +1,7 @@
 struct person{
     int height;
     int id;
-}
+};
 
 int main(int argc, char ** argv ){
 

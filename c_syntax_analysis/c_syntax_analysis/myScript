@@ -1,17 +1,56 @@
 #!/bin/bash
-
-path="./result/result0"
+#chmod a+rwx "./result/result_all.txt"
+echo "=======myScript start======"
 END=8
+
+cat << EOF >./result/result_all.txt
+file start
+EOF
+echo "$(date)" 1>> "./result/result_all.txt"
+chmod a+rwx "./result/result_all.txt"
+res_all="./result/result_all.txt"
+echo $res_all
+echo "./result/result_all.txt"
 
 for i in $(seq 1 $END);
 do
-  full_path="${path}$i.txt"
-  input_path="./input/input0$i.c"  
+  # file path
+  res="./result/result$i.txt"
+  input="./input/input0$i.c"  
+ 
+  # save result into "result?.txt"
 
-  echo "filt is readed: "$input_path
-  echo "file is saved: "$full_path
+  echo "=========created at $(date)========"	1> "${res}"
+  echo "$input is used"		 		1>>"${res}"
+  echo "$res is saved"	 			1>>"${res}"
 
-  echo "------input0$i.c start---------" > $full_path  
-  cat $input_path >> $full_path
-  ./program $input_path >> $full_path
+  echo "=========input0$i.c start==========" 	1>>"${res}"
+  cat $input	 				1>>"${res}"
+  echo "=========input0$i.c end============"	1>>"${res}"
+
+  echo "=========program $input start======"   	1>>"${res}"
+  ./program $input	 			1>>"${res}"
+  echo "=========program $input end========"    1>>"${res}"
+
+  # save result into "result_all.txt"
+  
+#  echo "$input is used"				1>>"${res_all}"
+#  echo "$res is saved"				1>>"${res_all}"
+#  echo "------input0$i.c start---------" 	1>>"${res_all}"
+#  cat $input	 			 	1>>"${res_all}"
+#  ./program $input			  	1>>"${res_all}"
+
+  echo -e "\n\n=============$input==============" 1>>"${res_all}"
+  echo "$input is used"                         1>>"${res_all}"
+  echo "$res is saved"                          1>>"${res_all}"
+
+  echo "=========$input code=========="    1>>"${res_all}"
+  cat $input                                    1>>"${res_all}"
+  
+  echo "=========$input output========"         1>>"${res_all}"
+  ./program $input                              1>>"${res_all}"
+  echo -e "==================================================================\n\n"    1>>"${res_all}"
+
 done
+
+echo "=========myscript end==========="

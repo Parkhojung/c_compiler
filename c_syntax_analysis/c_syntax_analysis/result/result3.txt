@@ -1,4 +1,7 @@
-------input03.c start---------
+=========created at Tue Nov  5 16:22:21 UTC 2019========
+./input/input03.c is used
+./result/result3.txt is saved
+=========input03.c start==========
 struct Point 
 { 
    int x, y; 
@@ -10,21 +13,23 @@ int main()
    // gets value 1.  The order of declaration is followed. 
    struct Point p1 = {0, 1};  
 }
+=========input03.c end============
+=========program ./input/input03.c start======
 
 start syntax analysis
 ======= syntax tree ==========
 N_PROGRAM (0,0)
-| (ID="") TYPE:1945910 KIND:VAR SPEC=AUTO LEV=0 VAL=0 ADDR=0 
+| (ID="") TYPE:116b910 KIND:VAR SPEC=AUTO LEV=0 VAL=0 ADDR=0 
 | | TYPE
 | | | STRUCT
 | | | | FIELD
-| | | | | (ID="x") TYPE:19402a0 KIND:FIELD SPEC=NULL LEV=1 VAL=0 ADDR=0 
+| | | | | (ID="x") TYPE:11662a0 KIND:FIELD SPEC=NULL LEV=1 VAL=0 ADDR=0 
 | | | | | | TYPE
 | | | | | | | (int)
-| | | | | (ID="y") TYPE:19402a0 KIND:FIELD SPEC=NULL LEV=1 VAL=0 ADDR=0 
+| | | | | (ID="y") TYPE:11662a0 KIND:FIELD SPEC=NULL LEV=1 VAL=0 ADDR=0 
 | | | | | | TYPE
 | | | | | | | (int)
-| (ID="main") TYPE:1945b30 KIND:FUNC SPEC=NULL LEV=0 VAL=0 ADDR=0 
+| (ID="main") TYPE:116bb30 KIND:FUNC SPEC=NULL LEV=0 VAL=0 ADDR=0 
 | | TYPE
 | | | FUNCTION
 | | | | PARAMETER
@@ -32,9 +37,9 @@ N_PROGRAM (0,0)
 | | | | | (int)
 | | | | BODY
 | | | | | N_STMT_COMPOUND (0,0)
-| | | | | | (ID="p1") TYPE:1945910 KIND:VAR SPEC=AUTO LEV=1 VAL=0 ADDR=0 
+| | | | | | (ID="p1") TYPE:116b910 KIND:VAR SPEC=AUTO LEV=1 VAL=0 ADDR=0 
 | | | | | | | TYPE
-| | | | | | | | (DONE:1945910)
+| | | | | | | | (DONE:116b910)
 | | | | | | | INIT
 | | | | | | | | N_INIT_LIST (0,0)
 | | | | | | | | | N_INIT_LIST_ONE (0,0)
@@ -46,3 +51,4 @@ N_PROGRAM (0,0)
 | | | | | | | | | | | | 1
 | | | | | | | | | | N_INIT_LIST_NIL (0,0)
 | | | | | | N_STMT_LIST_NIL (0,0)
+=========program ./input/input03.c end========
