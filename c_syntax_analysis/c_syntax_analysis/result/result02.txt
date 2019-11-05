@@ -1,0 +1,19 @@
+------input02.c start---------
+struct person{
+    int height;
+    int id;
+}
+
+int main(int argc, char ** argv ){
+
+    struct person_obj;
+    person_obj.height = 150;
+    person_obj.id = 1;
+
+}
+
+
+
+start syntax analysis
+line 6: syntax error: illegal declaration specifiers near main
+line 12: syntax error: incomplete forward reference for identifier person_obj near }

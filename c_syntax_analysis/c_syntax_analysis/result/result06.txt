@@ -1,0 +1,20 @@
+------input06.c start---------
+int max(int num1, int num2);
+ 
+int main () {
+
+   /* local variable definition */
+   int a = 100;
+   int b = 200;
+   int ret;
+ 
+   /* calling a function to get max value */
+   ret = max(a, b);
+ 
+//   printf( "Max value is : %d\n", ret );
+ 
+   return 0;
+}
+
+start syntax analysis
+line 5: syntax error near / 

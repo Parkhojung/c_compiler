@@ -1,0 +1,17 @@
+#!/bin/bash
+
+path="./result/result0"
+END=8
+
+for i in $(seq 1 $END);
+do
+  full_path="${path}$i.txt"
+  input_path="./input/input0$i.c"  
+
+  echo "filt is readed: "$input_path
+  echo "file is saved: "$full_path
+
+  echo "------input0$i.c start---------" > $full_path  
+  cat $input_path >> $full_path
+  ./program $input_path >> $full_path
+done
