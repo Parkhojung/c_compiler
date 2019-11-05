@@ -5,10 +5,9 @@ struct person{
 
 int main(int argc, char ** argv ){
 
-    struct person_obj;
-    person_obj.height = 150;
-    person_obj.id = 1;
-
+    struct person obj;
+    obj.height = 150;
+    obj.id = 1;
 }
 
 
