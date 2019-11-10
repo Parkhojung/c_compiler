@@ -158,7 +158,7 @@ A_ID *searchIdentifierAtCurrentLevel(char *s, A_ID *id) {
     // 명칭 목록 id 에서 현재 level 과 같은 level에 명칭 s 가 있는지를 탐색
     while (id) {
         
-        if(id->level<current_level)
+        if(id->level!=current_level)
             return(NIL);
         
         if(strcmp(id->name, s) == 0)
@@ -176,7 +176,7 @@ void checkForwardReference() {
     // 미완성 구조체 선언이 있는지 검사
     while (id) {
         
-        if(id->level<current_level)
+        if(id->level!=current_level)
             return;
         
         t = id->type;
