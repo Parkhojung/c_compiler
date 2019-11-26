@@ -1,8 +1,8 @@
 //
 //  semantic.c
-//  semantic_analysis
+//  c_semantic_analysis
 //
-//  Created by parkhojeong on 2019/11/26.
+//  Created by parkhojeong on 2019/11/27.
 //  Copyright © 2019 parkhojeong. All rights reserved.
 //
 
@@ -1340,6 +1340,5 @@ void semantic_warning(int i, int ll)
     }
 }
 //36 -
-
 
 

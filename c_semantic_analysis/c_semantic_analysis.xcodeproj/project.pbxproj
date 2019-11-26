@@ -7,13 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CBF5CFD5238D4A6B00F3468D /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = CBF5CFD4238D4A6B00F3468D /* main.c */; };
-		CBF5CFD7238D4AD300F3468D /* print.c in Sources */ = {isa = PBXBuildFile; fileRef = CBF5CFD6238D4AD300F3468D /* print.c */; };
-		CBF5CFD9238D5C0200F3468D /* semantic.c in Sources */ = {isa = PBXBuildFile; fileRef = CBF5CFD8238D5C0200F3468D /* semantic.c */; };
+		CBF5CFE7238D827F00F3468D /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = CBF5CFE6238D827F00F3468D /* main.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		CBF5CFBF238D495400F3468D /* CopyFiles */ = {
+		CBF5CFE1238D827F00F3468D /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -25,14 +23,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		CBF5CFC1238D495400F3468D /* c_semantic_analysis */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = c_semantic_analysis; sourceTree = BUILT_PRODUCTS_DIR; };
-		CBF5CFD4238D4A6B00F3468D /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		CBF5CFD6238D4AD300F3468D /* print.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = print.c; sourceTree = "<group>"; };
-		CBF5CFD8238D5C0200F3468D /* semantic.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = semantic.c; sourceTree = "<group>"; };
+		CBF5CFE3238D827F00F3468D /* c_semantic_analysis */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = c_semantic_analysis; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBF5CFE6238D827F00F3468D /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		CBF5CFBE238D495400F3468D /* Frameworks */ = {
+		CBF5CFE0238D827F00F3468D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -42,28 +38,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CBF5CFB8238D495400F3468D = {
+		CBF5CFDA238D827F00F3468D = {
 			isa = PBXGroup;
 			children = (
-				CBF5CFC3238D495400F3468D /* c_semantic_analysis */,
-				CBF5CFC2238D495400F3468D /* Products */,
+				CBF5CFE5238D827F00F3468D /* c_semantic_analysis */,
+				CBF5CFE4238D827F00F3468D /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		CBF5CFC2238D495400F3468D /* Products */ = {
+		CBF5CFE4238D827F00F3468D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CBF5CFC1238D495400F3468D /* c_semantic_analysis */,
+				CBF5CFE3238D827F00F3468D /* c_semantic_analysis */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CBF5CFC3238D495400F3468D /* c_semantic_analysis */ = {
+		CBF5CFE5238D827F00F3468D /* c_semantic_analysis */ = {
 			isa = PBXGroup;
 			children = (
-				CBF5CFD4238D4A6B00F3468D /* main.c */,
-				CBF5CFD6238D4AD300F3468D /* print.c */,
-				CBF5CFD8238D5C0200F3468D /* semantic.c */,
+				CBF5CFE6238D827F00F3468D /* main.c */,
 			);
 			path = c_semantic_analysis;
 			sourceTree = "<group>";
@@ -71,38 +65,38 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CBF5CFC0238D495400F3468D /* c_semantic_analysis */ = {
+		CBF5CFE2238D827F00F3468D /* c_semantic_analysis */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CBF5CFC8238D495400F3468D /* Build configuration list for PBXNativeTarget "c_semantic_analysis" */;
+			buildConfigurationList = CBF5CFEA238D827F00F3468D /* Build configuration list for PBXNativeTarget "c_semantic_analysis" */;
 			buildPhases = (
-				CBF5CFBD238D495400F3468D /* Sources */,
-				CBF5CFBE238D495400F3468D /* Frameworks */,
-				CBF5CFBF238D495400F3468D /* CopyFiles */,
+				CBF5CFDF238D827F00F3468D /* Sources */,
+				CBF5CFE0238D827F00F3468D /* Frameworks */,
+				CBF5CFE1238D827F00F3468D /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = c_semantic_analysis;
-			productName = semantic_analysis;
-			productReference = CBF5CFC1238D495400F3468D /* c_semantic_analysis */;
+			productName = c_semantic_analysis;
+			productReference = CBF5CFE3238D827F00F3468D /* c_semantic_analysis */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		CBF5CFB9238D495400F3468D /* Project object */ = {
+		CBF5CFDB238D827F00F3468D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = parkhojeong;
 				TargetAttributes = {
-					CBF5CFC0238D495400F3468D = {
+					CBF5CFE2238D827F00F3468D = {
 						CreatedOnToolsVersion = 11.2.1;
 					};
 				};
 			};
-			buildConfigurationList = CBF5CFBC238D495400F3468D /* Build configuration list for PBXProject "c_semantic_analysis" */;
+			buildConfigurationList = CBF5CFDE238D827F00F3468D /* Build configuration list for PBXProject "c_semantic_analysis" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -110,31 +104,29 @@
 				en,
 				Base,
 			);
-			mainGroup = CBF5CFB8238D495400F3468D;
-			productRefGroup = CBF5CFC2238D495400F3468D /* Products */;
+			mainGroup = CBF5CFDA238D827F00F3468D;
+			productRefGroup = CBF5CFE4238D827F00F3468D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CBF5CFC0238D495400F3468D /* c_semantic_analysis */,
+				CBF5CFE2238D827F00F3468D /* c_semantic_analysis */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		CBF5CFBD238D495400F3468D /* Sources */ = {
+		CBF5CFDF238D827F00F3468D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBF5CFD5238D4A6B00F3468D /* main.c in Sources */,
-				CBF5CFD7238D4AD300F3468D /* print.c in Sources */,
-				CBF5CFD9238D5C0200F3468D /* semantic.c in Sources */,
+				CBF5CFE7238D827F00F3468D /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		CBF5CFC6238D495400F3468D /* Debug */ = {
+		CBF5CFE8238D827F00F3468D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -192,7 +184,7 @@
 			};
 			name = Debug;
 		};
-		CBF5CFC7238D495400F3468D /* Release */ = {
+		CBF5CFE9238D827F00F3468D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -243,7 +235,7 @@
 			};
 			name = Release;
 		};
-		CBF5CFC9238D495400F3468D /* Debug */ = {
+		CBF5CFEB238D827F00F3468D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -251,7 +243,7 @@
 			};
 			name = Debug;
 		};
-		CBF5CFCA238D495400F3468D /* Release */ = {
+		CBF5CFEC238D827F00F3468D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -262,25 +254,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CBF5CFBC238D495400F3468D /* Build configuration list for PBXProject "c_semantic_analysis" */ = {
+		CBF5CFDE238D827F00F3468D /* Build configuration list for PBXProject "c_semantic_analysis" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CBF5CFC6238D495400F3468D /* Debug */,
-				CBF5CFC7238D495400F3468D /* Release */,
+				CBF5CFE8238D827F00F3468D /* Debug */,
+				CBF5CFE9238D827F00F3468D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CBF5CFC8238D495400F3468D /* Build configuration list for PBXNativeTarget "c_semantic_analysis" */ = {
+		CBF5CFEA238D827F00F3468D /* Build configuration list for PBXNativeTarget "c_semantic_analysis" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CBF5CFC9238D495400F3468D /* Debug */,
-				CBF5CFCA238D495400F3468D /* Release */,
+				CBF5CFEB238D827F00F3468D /* Debug */,
+				CBF5CFEC238D827F00F3468D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = CBF5CFB9238D495400F3468D /* Project object */;
+	rootObject = CBF5CFDB238D827F00F3468D /* Project object */;
 }

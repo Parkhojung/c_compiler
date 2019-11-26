@@ -1,9 +1,9 @@
 //
 //  main.c
-//  semantic_analysis
+//  c_syntax_analysis
 //
-//  Created by parkhojeong on 2019/11/26.
-//  Copyright © 2019 parkhojeong. All rights reserved.
+//  Created by PARKHOJUNG on 2019/11/03.
+//  Copyright © 2019 PARKHOJUNG. All rights reserved.
 //
 
 #include <stdio.h>

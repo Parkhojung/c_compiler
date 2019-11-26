@@ -1,3 +1,10 @@
+//
+//  print.c
+//  c_semantic_analysis
+//
+//  Created by parkhojeong on 2019/11/27.
+//  Copyright © 2019 parkhojeong. All rights reserved.
+//
 //A7 Semantic Tree Printer
 #include "type.h"
 extern char * node_name[];
@@ -330,5 +337,4 @@ else ;
 else
 prt_sem_initializer(id->init,s+2); }
 }
-
 
