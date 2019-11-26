@@ -1,5 +1,0 @@
-fun(){
-
-	struct s myvar;
-
-}
