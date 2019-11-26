@@ -1,0 +1,5 @@
+fun(){
+
+	struct s myvar;
+
+}
