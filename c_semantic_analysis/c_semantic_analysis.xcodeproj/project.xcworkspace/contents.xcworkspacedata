@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:semantic_analysis.xcodeproj">
+      location = "self:/Users/phj/Documents/c_compiler/semantic_analysis/c_semantic_analysis.xcodeproj">
    </FileRef>
 </Workspace>

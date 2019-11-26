@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CBF5CFC5238D495400F3468D /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = CBF5CFC4238D495400F3468D /* main.c */; };
+		CBF5CFD5238D4A6B00F3468D /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = CBF5CFD4238D4A6B00F3468D /* main.c */; };
+		CBF5CFD7238D4AD300F3468D /* print.c in Sources */ = {isa = PBXBuildFile; fileRef = CBF5CFD6238D4AD300F3468D /* print.c */; };
+		CBF5CFD9238D5C0200F3468D /* semantic.c in Sources */ = {isa = PBXBuildFile; fileRef = CBF5CFD8238D5C0200F3468D /* semantic.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +25,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		CBF5CFC1238D495400F3468D /* semantic_analysis */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = semantic_analysis; sourceTree = BUILT_PRODUCTS_DIR; };
-		CBF5CFC4238D495400F3468D /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		CBF5CFC1238D495400F3468D /* c_semantic_analysis */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = c_semantic_analysis; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBF5CFD4238D4A6B00F3468D /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		CBF5CFD6238D4AD300F3468D /* print.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = print.c; sourceTree = "<group>"; };
+		CBF5CFD8238D5C0200F3468D /* semantic.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = semantic.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,7 +45,7 @@
 		CBF5CFB8238D495400F3468D = {
 			isa = PBXGroup;
 			children = (
-				CBF5CFC3238D495400F3468D /* semantic_analysis */,
+				CBF5CFC3238D495400F3468D /* c_semantic_analysis */,
 				CBF5CFC2238D495400F3468D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,25 +53,27 @@
 		CBF5CFC2238D495400F3468D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CBF5CFC1238D495400F3468D /* semantic_analysis */,
+				CBF5CFC1238D495400F3468D /* c_semantic_analysis */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CBF5CFC3238D495400F3468D /* semantic_analysis */ = {
+		CBF5CFC3238D495400F3468D /* c_semantic_analysis */ = {
 			isa = PBXGroup;
 			children = (
-				CBF5CFC4238D495400F3468D /* main.c */,
+				CBF5CFD4238D4A6B00F3468D /* main.c */,
+				CBF5CFD6238D4AD300F3468D /* print.c */,
+				CBF5CFD8238D5C0200F3468D /* semantic.c */,
 			);
-			path = semantic_analysis;
+			path = c_semantic_analysis;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CBF5CFC0238D495400F3468D /* semantic_analysis */ = {
+		CBF5CFC0238D495400F3468D /* c_semantic_analysis */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CBF5CFC8238D495400F3468D /* Build configuration list for PBXNativeTarget "semantic_analysis" */;
+			buildConfigurationList = CBF5CFC8238D495400F3468D /* Build configuration list for PBXNativeTarget "c_semantic_analysis" */;
 			buildPhases = (
 				CBF5CFBD238D495400F3468D /* Sources */,
 				CBF5CFBE238D495400F3468D /* Frameworks */,
@@ -77,9 +83,9 @@
 			);
 			dependencies = (
 			);
-			name = semantic_analysis;
+			name = c_semantic_analysis;
 			productName = semantic_analysis;
-			productReference = CBF5CFC1238D495400F3468D /* semantic_analysis */;
+			productReference = CBF5CFC1238D495400F3468D /* c_semantic_analysis */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -96,7 +102,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CBF5CFBC238D495400F3468D /* Build configuration list for PBXProject "semantic_analysis" */;
+			buildConfigurationList = CBF5CFBC238D495400F3468D /* Build configuration list for PBXProject "c_semantic_analysis" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -109,7 +115,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CBF5CFC0238D495400F3468D /* semantic_analysis */,
+				CBF5CFC0238D495400F3468D /* c_semantic_analysis */,
 			);
 		};
 /* End PBXProject section */
@@ -119,7 +125,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBF5CFC5238D495400F3468D /* main.c in Sources */,
+				CBF5CFD5238D4A6B00F3468D /* main.c in Sources */,
+				CBF5CFD7238D4AD300F3468D /* print.c in Sources */,
+				CBF5CFD9238D5C0200F3468D /* semantic.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,7 +262,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CBF5CFBC238D495400F3468D /* Build configuration list for PBXProject "semantic_analysis" */ = {
+		CBF5CFBC238D495400F3468D /* Build configuration list for PBXProject "c_semantic_analysis" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CBF5CFC6238D495400F3468D /* Debug */,
@@ -263,7 +271,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CBF5CFC8238D495400F3468D /* Build configuration list for PBXNativeTarget "semantic_analysis" */ = {
+		CBF5CFC8238D495400F3468D /* Build configuration list for PBXNativeTarget "c_semantic_analysis" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CBF5CFC9238D495400F3468D /* Debug */,

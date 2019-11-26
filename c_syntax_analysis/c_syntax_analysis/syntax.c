@@ -1,6 +1,6 @@
 //
 //  syntax.c
-//  c_syntax_analysis
+//  c_semantic_analysis
 //
 //  Created by PARKHOJUNG on 2019/11/03.
 //  Copyright © 2019 PARKHOJUNG. All rights reserved.
