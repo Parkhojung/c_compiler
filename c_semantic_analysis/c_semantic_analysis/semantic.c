@@ -290,7 +290,7 @@ A_TYPE *sem_expression(A_NODE *node)
             t=sem_expression(node->clink);
             // 수식의 타입 검사, 결정
             if(node->clink->value==TRUE||isFunctionType(t)){
-                result=setTypeElementType(maketype(T_POINTER), t);
+                result=setTypeElementType(makeType(T_POINTER), t);
                 result->size=4;
             }else
                 semantic_error(60,node->line);

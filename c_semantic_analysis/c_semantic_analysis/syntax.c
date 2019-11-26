@@ -50,7 +50,7 @@ A_TYPE *setTypeAndKindOfDeclarator(A_TYPE *,ID_KIND,A_ID *);
 A_TYPE *setTypeStructOrEnumIdentifier(T_KIND,char *,ID_KIND);
 BOOLEAN isNotSameFormalParameters(A_ID *, A_ID *);
 BOOLEAN isNotSameType(A_TYPE *, A_TYPE *);
-BOOLEAN isPointerOrArrayType(A_TYPE *);
+extern BOOLEAN isPointerOrArrayType(A_TYPE *);
 void syntax_error();
 void initialize();
 // make new node for syntax tree
@@ -562,6 +562,7 @@ void syntax_error(int i,char *s) {
         printf(" near %s\n", yytext);
 }
 
+/*
 BOOLEAN isPointerOrArrayType(A_TYPE * a_type){
     
     if(a_type->kind == T_POINTER || a_type->kind == T_ARRAY)
@@ -569,3 +570,4 @@ BOOLEAN isPointerOrArrayType(A_TYPE * a_type){
     else
         return 0;
 }
+*/
