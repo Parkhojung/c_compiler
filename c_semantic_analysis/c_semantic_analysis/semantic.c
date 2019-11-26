@@ -289,7 +289,7 @@ A_TYPE *sem_expression(A_NODE *node)
             //7 -
             t=sem_expression(node->clink);
             // 수식의 타입 검사, 결정
-            if(node->clink->value==TURE||isFunctionType(t)){
+            if(node->clink->value==TRUE||isFunctionType(t)){
                 result=setTypeElementType(maketype(T_POINTER), t);
                 result->size=4;
             }else
@@ -356,7 +356,7 @@ A_TYPE *sem_expression(A_NODE *node)
             t2=sem_expression(node->rlink);
             // 좌우 수식의 타입 검사와 변환
             if(isArithmeticType(t1) && isArithmeticType(t2))
-                result=convertUsualBinaryConversion(noe);
+                result=convertUsualBinaryConversion(node);
             else if(isPointerType(t1) && isIntegralType(t2))
                 result = 1;
             else if(isCompatibleType(t1, t2))
@@ -716,23 +716,25 @@ int sem_A_TYPE(A_TYPE *t)
                 semantic_error(85,t->line);
             
             //17 -
-            i=sem_declaration_list(t->field,12)+12; // parameter type and size if (t->expr) {
+            i=sem_declaration_list(t->field,12)+12; // parameter type and size 
+	    if (t->expr) {
             
             // skip prototype declaration
-        i=i+sem_statement(t->expr,i,t->element_type,FALSE,FALSE,FALSE);}
-    t->local_var_size=i;
-    break;
-case T_POINTER:
-    i=sem_A_TYPE(t->element_type);
-    result=4;
-    break;
-case T_VOID:
-    break;
-default: semantic_error(90,t->line);
-    break;
-}
-t->size=result;
-return(result);
+        	i=i+sem_statement(t->expr,i,t->element_type,FALSE,FALSE,FALSE);
+		}
+    	    t->local_var_size=i;
+    	    break;
+	case T_POINTER:
+    		i=sem_A_TYPE(t->element_type);
+    		result=4;
+    		break;
+	case T_VOID:
+    		break;
+	default: semantic_error(90,t->line);
+    		break;
+	}
+	t->size=result;
+	return(result);
 }
 // set variable address in declaration-list, and return its total variable size
 int sem_declaration_list(A_ID *id, int addr)
