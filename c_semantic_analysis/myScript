@@ -1,0 +1,36 @@
+#!/bin/bash
+#chmod a+rwx "./result/result_all.txt"
+
+END=30
+myDash1="------------------------"
+myDash2="========================="
+echo "${myDash2}myScript start ${myDash2}"
+
+cat << EOF >./result/result_all.txt
+file start
+EOF
+echo "$(date)" 1>> "./result/result_all.txt"
+chmod a+rwx "./result/result_all.txt"
+res_all="./result/result_all.txt"
+echo "result path: $res_all"
+
+for i in $(seq 1 $END);
+do
+  # file path
+  res="./result/result$i.txt"
+  input="./input/input$i.c"  
+ 
+
+  # save result into "result_all.txt"
+  echo -e "\n\n ${myDash2} $input ${myDash2}"  		1>>"${res_all}"
+#  echo "input:$input"                  			1>>"${res_all}"
+#  echo "output:$res" 					1>>"${res_all}"
+  echo "${myDash1} code ${myDash1}"	    		1>>"${res_all}"
+  cat  $input         			 		1>>"${res_all}"
+  echo "${myDash1} program ${myDash1}" 			1>>"${res_all}"
+  ./program $input    					1>>"${res_all}"
+  echo -e "${myDash2}${myDash2}\n\n"		  	1>>"${res_all}"
+
+done
+
+echo "${myDash2} myscript end ${myDash2}"
