@@ -698,7 +698,9 @@ int sem_A_TYPE(A_TYPE *t)
             id=t->field;
             while (id) {
                 result+=sem_declaration(id, result);
-                id = id->link; }
+                id = id->link;
+                
+            }
             break;
         case T_UNION:
             id=t->field;
@@ -706,7 +708,9 @@ int sem_A_TYPE(A_TYPE *t)
                 i=sem_declaration(id,0);
                 if (i>result)
                     result=i;
-                id = id->link; }
+                id = id->link;
+                
+            }
             break;
         case T_FUNC:
             tt=t->element_type;
@@ -714,27 +718,24 @@ int sem_A_TYPE(A_TYPE *t)
             // check return type
             if(isArrayType(tt)||isFunctionType(tt))
                 semantic_error(85,t->line);
-            
-            //17 -
-            i=sem_declaration_list(t->field,12)+12; // parameter type and size 
-	    if (t->expr) {
-            
-            // skip prototype declaration
-        	i=i+sem_statement(t->expr,i,t->element_type,FALSE,FALSE,FALSE);
-		}
-    	    t->local_var_size=i;
-    	    break;
-	case T_POINTER:
-    		i=sem_A_TYPE(t->element_type);
-    		result=4;
-    		break;
-	case T_VOID:
-    		break;
-	default: semantic_error(90,t->line);
-    		break;
-	}
-	t->size=result;
-	return(result);
+            i=sem_declaration_list(t->field,12)+12; // parameter type and size
+            if (t->expr) {
+                // skip prototype declaration
+                i=i+sem_statement(t->expr,i,t->element_type,FALSE,FALSE,FALSE);
+            }
+            t->local_var_size=i;
+            break;
+        case T_POINTER:
+            i=sem_A_TYPE(t->element_type);
+            result=4;
+            break;
+        case T_VOID:
+            break;
+        default: semantic_error(90,t->line);
+            break;
+    }
+    t->size=result;
+    return(result);
 }
 // set variable address in declaration-list, and return its total variable size
 int sem_declaration_list(A_ID *id, int addr)
