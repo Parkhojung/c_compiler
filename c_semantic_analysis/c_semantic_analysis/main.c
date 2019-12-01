@@ -16,6 +16,8 @@ extern A_NODE *root;
 extern FILE *yyin;
 void initialize();
 void print_ast();
+void print_sem_ast();
+void semantic_analysis();
 void main(int argc, char *argv[])
 {
     if (argc<2){
@@ -29,5 +31,9 @@ void main(int argc, char *argv[])
     yyparse();
     if (syntax_err) exit(1);
     print_ast(root);
+
+    semantic_analysis(root);    
+    print_sem_ast(root);
+
     exit(0);
 }
