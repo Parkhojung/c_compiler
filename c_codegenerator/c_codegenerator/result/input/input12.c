@@ -1,0 +1,19 @@
+	      INT   0, 20
+	      SUP   0, main
+	      RET   0, 0
+main:
+	      INT   0, 12
+	      LDA   0, 12
+	      LDA   0, 12
+	      LDI   0, 1
+	     LITI   0, 3
+	      STX   0, 1
+	      POP   0, 1
+	      LDA   0, 12
+	      LDA   0, 12
+	      LDI   0, 1
+	      LOD   0, 16
+	      STX   0, 1
+	      POP   0, 1
+	      RET   0, 0
+.literal    16  0.000000

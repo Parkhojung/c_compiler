@@ -12,28 +12,44 @@
 #include "type.h"
 
 extern int syntax_err;
+extern int semantic_err;
 extern A_NODE *root;
+FILE *fout;
 extern FILE *yyin;
 void initialize();
 void print_ast();
 void print_sem_ast();
 void semantic_analysis();
+void code_generation();
 void main(int argc, char *argv[])
 {
+    
+    char s[30];
+	
     if (argc<2){
         printf("source file not given\n");
         exit(1);}
     if ( (argc==2) && (yyin=fopen(argv[argc-1],"r"))==NULL ) {
         printf("can not open input file: %s\n",argv[argc-1]);
         exit(1);}
+    
+    strcat(s,"result/");
+    strcat(s,argv[1]);
+    if((fout=fopen(s,"w"))==NULL){
+        printf("can not open output file: a.asm\n");
+        exit(1);
+    }
+    
     printf("\nstart syntax analysis\n");
     initialize();
     yyparse();
     if (syntax_err) exit(1);
     print_ast(root);
 
-    semantic_analysis(root);    
+    semantic_analysis(root);
+    if(semantic_err)exit(1);
     print_sem_ast(root);
     code_generation(root);
     exit(0);
 }
+

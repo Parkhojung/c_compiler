@@ -104,16 +104,26 @@ void gen_expression(A_NODE *node)
                     switch (t->kind) {
                         case T_ENUM:
                         case T_POINTER:
+                            gen_code_i(LOD,id->level,id->address);
+                            break;
                         case T_ARRAY:
+                            if(id->kind==ID_VAR)
+                                gen_code_i(LDA,id->level,id->address);
+                            else
+                                gen_code_i(LOD,id->level,id->address);
+                            break;
                         case T_STRUCT:
                         case T_UNION:
+                            gen_code_i(LDA,id->level,id->address);
+                            i=id->type->size;
+                            gen_code_i(LDI,0,i%4?i/4+1:i/4);
                             break;
                         default:gen_error(11,id->line);
                             break;
                     }
                     break;
                 case ID_ENUM_LITERAL:
-                    
+                    gen_code_i(LITI,0,id->init);
                     break;
                 default: gen_error(11,node->line);
                     break;
@@ -139,7 +149,7 @@ void gen_expression(A_NODE *node)
             
             if(node->type->size >1){
                 gen_code_i(LITI, 0, node->llink->type->size);
-                get_code_i(MULI,0,0);
+                gen_code_i(MULI,0,0);
             }
             gen_code_i(OFFSET, 0, 0);
             if(!isArrayType(node->type)){
@@ -742,10 +752,18 @@ void gen_declaration(A_ID *id)
     A_NODE *node;
     switch (id->kind) {
         case ID_VAR:
-            
+            if(id->init)
+                gen_initializer_global(id->init,id->type,id->address);
+            else
+                gen_initializer_local(id->init,id->type,id->address);
             break;
         case ID_FUNC:
-            
+            if(id->type->expr){
+                gen_label_name(id->name);
+                gen_code_i(INT,0,id->type->local_var_size);
+                gen_statement(id->type->expr,0,0,0,0);
+                gen_code_i(RET,0,0);
+            }
             break;
         case ID_PARM:
         case ID_TYPE:
@@ -807,3 +825,4 @@ void gen_label_name(char *s)
     fprintf(fout,"%s:\n",s);
     
 }
+
