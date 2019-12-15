@@ -1,5 +1,5 @@
 file start
-Sun Dec 15 15:17:51 ASIA 2019
+Sun Dec 15 15:25:56 ASIA 2019
 
 
  ========================= ./input/input1.c =========================
@@ -16,23 +16,23 @@ int main(){
 start syntax analysis
 ======= semantic tree ==========
 N_PROGRAM (0,20)
-| (ID="a") TYPE:193a4d0 KIND:VAR SPEC=AUTO LEV=0 VAL=0 ADDR=12
+| (ID="a") TYPE:192f4d0 KIND:VAR SPEC=AUTO LEV=0 VAL=0 ADDR=12
 | | TYPE
 | | | (int)
 | | INIT
 | | | N_INIT_LIST_ONE (0,0)
 | | | | N_EXP_INT_CONST (0,0)
 | | | | | INT=3
-| (ID="b") TYPE:193a4d0 KIND:VAR SPEC=AUTO LEV=0 VAL=0 ADDR=16
+| (ID="b") TYPE:192f4d0 KIND:VAR SPEC=AUTO LEV=0 VAL=0 ADDR=16
 | | TYPE
 | | | (int)
 | | INIT
 | | | N_INIT_LIST_ONE (0,0)
 | | | | N_EXP_INT_CONST (0,0)
 | | | | | INT=5
-| (ID="main") TYPE:193fd80 KIND:FUNC SPEC=NULL LEV=0 VAL=0 ADDR=0
+| (ID="main") TYPE:1934d80 KIND:FUNC SPEC=NULL LEV=0 VAL=0 ADDR=0
 | | TYPE
-| | | (DONE:193fd80)
+| | | (DONE:1934d80)
 ==================================================
 
 
@@ -58,12 +58,12 @@ int main(int argc, char ** argv ){
 start syntax analysis
 ======= semantic tree ==========
 N_PROGRAM (0,20)
-| (ID="") TYPE:f18b40 KIND:VAR SPEC=AUTO LEV=0 VAL=0 ADDR=12
+| (ID="") TYPE:1598b40 KIND:VAR SPEC=AUTO LEV=0 VAL=0 ADDR=12
 | | TYPE
-| | | (DONE:f18b40)
-| (ID="main") TYPE:f18f00 KIND:FUNC SPEC=NULL LEV=0 VAL=0 ADDR=0
+| | | (DONE:1598b40)
+| (ID="main") TYPE:1598f00 KIND:FUNC SPEC=NULL LEV=0 VAL=0 ADDR=0
 | | TYPE
-| | | (DONE:f18f00)
+| | | (DONE:1598f00)
 ==================================================
 
 
@@ -87,12 +87,12 @@ int main()
 start syntax analysis
 ======= semantic tree ==========
 N_PROGRAM (0,20)
-| (ID="") TYPE:1ea0b40 KIND:VAR SPEC=AUTO LEV=0 VAL=0 ADDR=12
+| (ID="") TYPE:1c8db40 KIND:VAR SPEC=AUTO LEV=0 VAL=0 ADDR=12
 | | TYPE
-| | | (DONE:1ea0b40)
-| (ID="main") TYPE:1ea0d60 KIND:FUNC SPEC=NULL LEV=0 VAL=0 ADDR=0
+| | | (DONE:1c8db40)
+| (ID="main") TYPE:1c8dd60 KIND:FUNC SPEC=NULL LEV=0 VAL=0 ADDR=0
 | | TYPE
-| | | (DONE:1ea0d60)
+| | | (DONE:1c8dd60)
 ==================================================
 
 
@@ -122,12 +122,12 @@ int main()
 start syntax analysis
 ======= semantic tree ==========
 N_PROGRAM (0,20)
-| (ID="") TYPE:20d6b40 KIND:VAR SPEC=AUTO LEV=0 VAL=0 ADDR=12
+| (ID="") TYPE:7efb40 KIND:VAR SPEC=AUTO LEV=0 VAL=0 ADDR=12
 | | TYPE
-| | | (DONE:20d6b40)
-| (ID="main") TYPE:20d6d60 KIND:FUNC SPEC=NULL LEV=0 VAL=0 ADDR=0
+| | | (DONE:7efb40)
+| (ID="main") TYPE:7efd60 KIND:FUNC SPEC=NULL LEV=0 VAL=0 ADDR=0
 | | TYPE
-| | | (DONE:20d6d60)
+| | | (DONE:7efd60)
 ==================================================
 
 
@@ -153,9 +153,9 @@ int max(int num1, int num2) {
 start syntax analysis
 ======= semantic tree ==========
 N_PROGRAM (0,12)
-| (ID="max") TYPE:6aac80 KIND:FUNC SPEC=NULL LEV=0 VAL=0 ADDR=0
+| (ID="max") TYPE:1ae4c80 KIND:FUNC SPEC=NULL LEV=0 VAL=0 ADDR=0
 | | TYPE
-| | | (DONE:6aac80)
+| | | (DONE:1ae4c80)
 ==================================================
 
 
@@ -184,12 +184,12 @@ int main () {
 start syntax analysis
 ======= semantic tree ==========
 N_PROGRAM (0,12)
-| (ID="max") TYPE:1714c80 KIND:FUNC SPEC=AUTO LEV=0 VAL=0 ADDR=0
+| (ID="max") TYPE:1737c80 KIND:FUNC SPEC=AUTO LEV=0 VAL=0 ADDR=0
 | | TYPE
-| | | (DONE:1714c80)
-| (ID="main") TYPE:1714d50 KIND:FUNC SPEC=NULL LEV=0 VAL=0 ADDR=0
+| | | (DONE:1737c80)
+| (ID="main") TYPE:1737d50 KIND:FUNC SPEC=NULL LEV=0 VAL=0 ADDR=0
 | | TYPE
-| | | (DONE:1714d50)
+| | | (DONE:1737d50)
 ==================================================
 
 
@@ -218,9 +218,9 @@ int main() {
 start syntax analysis
 ======= semantic tree ==========
 N_PROGRAM (0,12)
-| (ID="main") TYPE:1f8bb60 KIND:FUNC SPEC=NULL LEV=0 VAL=0 ADDR=0
+| (ID="main") TYPE:16bcb60 KIND:FUNC SPEC=NULL LEV=0 VAL=0 ADDR=0
 | | TYPE
-| | | (DONE:1f8bb60)
+| | | (DONE:16bcb60)
 ==================================================
 
 
@@ -255,9 +255,9 @@ int main(int argc, char **argv){
 start syntax analysis
 ======= semantic tree ==========
 N_PROGRAM (0,12)
-| (ID="main") TYPE:1cdad00 KIND:FUNC SPEC=NULL LEV=0 VAL=0 ADDR=0
+| (ID="main") TYPE:182ed00 KIND:FUNC SPEC=NULL LEV=0 VAL=0 ADDR=0
 | | TYPE
-| | | (DONE:1cdad00)
+| | | (DONE:182ed00)
 ==================================================
 
 
@@ -281,12 +281,12 @@ int main(){
 start syntax analysis
 ======= semantic tree ==========
 N_PROGRAM (0,12)
-| (ID="fun") TYPE:257bb60 KIND:FUNC SPEC=NULL LEV=0 VAL=0 ADDR=0
+| (ID="fun") TYPE:250ab60 KIND:FUNC SPEC=NULL LEV=0 VAL=0 ADDR=0
 | | TYPE
-| | | (DONE:257bb60)
-| (ID="main") TYPE:257bdc0 KIND:FUNC SPEC=NULL LEV=0 VAL=0 ADDR=0
+| | | (DONE:250ab60)
+| (ID="main") TYPE:250adc0 KIND:FUNC SPEC=NULL LEV=0 VAL=0 ADDR=0
 | | TYPE
-| | | (DONE:257bdc0)
+| | | (DONE:250adc0)
 ==================================================
 
 
@@ -307,12 +307,12 @@ start syntax analysis
 --- warning at line 5:incompatible types in assignment expression
 ======= semantic tree ==========
 N_PROGRAM (0,16)
-| (ID="date") TYPE:cb5ad0 KIND:VAR SPEC=AUTO LEV=0 VAL=0 ADDR=12
+| (ID="date") TYPE:14e1ad0 KIND:VAR SPEC=AUTO LEV=0 VAL=0 ADDR=12
 | | TYPE
-| | | (DONE:cb5ad0)
-| (ID="main") TYPE:cb6000 KIND:FUNC SPEC=NULL LEV=0 VAL=0 ADDR=0
+| | | (DONE:14e1ad0)
+| (ID="main") TYPE:14e2000 KIND:FUNC SPEC=NULL LEV=0 VAL=0 ADDR=0
 | | TYPE
-| | | (DONE:cb6000)
+| | | (DONE:14e2000)
 ==================================================
 
 
@@ -353,12 +353,12 @@ int main(){
 start syntax analysis
 ======= semantic tree ==========
 N_PROGRAM (0,20)
-| (ID="myvar") TYPE:e71ad0 KIND:VAR SPEC=AUTO LEV=0 VAL=0 ADDR=12
+| (ID="myvar") TYPE:1992ad0 KIND:VAR SPEC=AUTO LEV=0 VAL=0 ADDR=12
 | | TYPE
-| | | (DONE:e71ad0)
-| (ID="main") TYPE:e71d10 KIND:FUNC SPEC=NULL LEV=0 VAL=0 ADDR=0
+| | | (DONE:1992ad0)
+| (ID="main") TYPE:1992d10 KIND:FUNC SPEC=NULL LEV=0 VAL=0 ADDR=0
 | | TYPE
-| | | (DONE:e71d10)
+| | | (DONE:1992d10)
 ==================================================
 
 
@@ -436,9 +436,9 @@ fun(){
 start syntax analysis
 ======= semantic tree ==========
 N_PROGRAM (0,12)
-| (ID="fun") TYPE:1e35b40 KIND:FUNC SPEC=NULL LEV=0 VAL=0 ADDR=0
+| (ID="fun") TYPE:1bebb40 KIND:FUNC SPEC=NULL LEV=0 VAL=0 ADDR=0
 | | TYPE
-| | | (DONE:1e35b40)
+| | | (DONE:1bebb40)
 ==================================================
 
 
@@ -453,7 +453,7 @@ void a = 3;
 start syntax analysis
 ======= semantic tree ==========
 N_PROGRAM (0,12)
-| (ID="a") TYPE:1e2f680 KIND:VAR SPEC=AUTO LEV=0 VAL=0 ADDR=12
+| (ID="a") TYPE:2209680 KIND:VAR SPEC=AUTO LEV=0 VAL=0 ADDR=12
 | | TYPE
 | | | (void)
 | | INIT
@@ -495,9 +495,9 @@ fun(){
 start syntax analysis
 ======= semantic tree ==========
 N_PROGRAM (0,12)
-| (ID="fun") TYPE:999b40 KIND:FUNC SPEC=NULL LEV=0 VAL=0 ADDR=0
+| (ID="fun") TYPE:20fcb40 KIND:FUNC SPEC=NULL LEV=0 VAL=0 ADDR=0
 | | TYPE
-| | | (DONE:999b40)
+| | | (DONE:20fcb40)
 ==================================================
 
 
@@ -570,9 +570,9 @@ fun(struct s{int id;} a, struct s b){
 start syntax analysis
 ======= semantic tree ==========
 N_PROGRAM (0,12)
-| (ID="fun") TYPE:fd1d80 KIND:FUNC SPEC=NULL LEV=0 VAL=0 ADDR=0
+| (ID="fun") TYPE:24bcd80 KIND:FUNC SPEC=NULL LEV=0 VAL=0 ADDR=0
 | | TYPE
-| | | (DONE:fd1d80)
+| | | (DONE:24bcd80)
 ==================================================
 
 
@@ -588,9 +588,9 @@ fun(struct s{int a;} a, struct s b){
 start syntax analysis
 ======= semantic tree ==========
 N_PROGRAM (0,12)
-| (ID="fun") TYPE:c6ad80 KIND:FUNC SPEC=NULL LEV=0 VAL=0 ADDR=0
+| (ID="fun") TYPE:1a63d80 KIND:FUNC SPEC=NULL LEV=0 VAL=0 ADDR=0
 | | TYPE
-| | | (DONE:c6ad80)
+| | | (DONE:1a63d80)
 ==================================================
 
 
@@ -611,9 +611,9 @@ int main()
 start syntax analysis
 ======= semantic tree ==========
 N_PROGRAM (0,12)
-| (ID="main") TYPE:134cb60 KIND:FUNC SPEC=NULL LEV=0 VAL=0 ADDR=0
+| (ID="main") TYPE:1205b60 KIND:FUNC SPEC=NULL LEV=0 VAL=0 ADDR=0
 | | TYPE
-| | | (DONE:134cb60)
+| | | (DONE:1205b60)
 ==================================================
 
 
@@ -634,13 +634,20 @@ int muitiply(int a, int b) {
 }
 void main() {
     int i;
-    i=multiply(120,3);
+//    i=multiply(120,3);
 //    printf("result=%d\n",i);
 }
 ------------------------ program ------------------------
 
 start syntax analysis
-line 14: syntax error: undefined identifier multiply near multiply
+======= semantic tree ==========
+N_PROGRAM (0,12)
+| (ID="muitiply") TYPE:1caac80 KIND:FUNC SPEC=NULL LEV=0 VAL=0 ADDR=0
+| | TYPE
+| | | (DONE:1caac80)
+| (ID="main") TYPE:1cab7e0 KIND:FUNC SPEC=NULL LEV=0 VAL=0 ADDR=0
+| | TYPE
+| | | (DONE:1cab7e0)
 ==================================================
 
 
