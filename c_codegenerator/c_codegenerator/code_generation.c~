@@ -827,6 +827,6 @@ void gen_label_number(int i)
 void gen_label_name(char *s)
 {
     fprintf(fout,"%s:\n",s);
-    printf("%s:\n",s);
+    
 }
 

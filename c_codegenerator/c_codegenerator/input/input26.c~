@@ -1,4 +1,4 @@
-int multiply(int a, int b) {
+int muitiply(int a, int b) {
     int result;
     result=0;
     while (a) {

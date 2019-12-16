@@ -1,7 +1,7 @@
-	      INT   0, 12
+	      INT   0, 28
 	      SUP   0, main
 	      RET   0, 0
-muitiply:
+multiply:
 	      INT   0, 24
 	      LDA   1, 20
 	     LITI   0, 0
@@ -43,4 +43,20 @@ L3:
 	      RET   0, 0
 main:
 	      INT   0, 16
+	      LDA   1, 12
+	      INT   0, 16
+	     LITI   0, 120
+	     LITI   0, 3
+	      POP   0, 5
+	     ADDR   0, multiply
+	      CAL   0, 0
+	      STX   0, 1
+	      POP   0, 1
+	      INT   0, 12
+	      LDA   0, 12
+	      LOD   1, 12
+	      POP   0, 5
+	     ADDR   0, printf
+	      CAL   0, 0
 	      RET   0, 0
+.literal    12  "result=%d\n"

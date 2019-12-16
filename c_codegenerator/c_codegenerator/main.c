@@ -44,11 +44,11 @@ void main(int argc, char *argv[])
     initialize();
     yyparse();
     if (syntax_err) exit(1);
-    print_ast(root);
+    //print_ast(root);
 
     semantic_analysis(root);
     if(semantic_err)exit(1);
-    print_sem_ast(root);
+    //print_sem_ast(root);
     code_generation(root);
     exit(0);
 }
