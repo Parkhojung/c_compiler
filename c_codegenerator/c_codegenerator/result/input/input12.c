@@ -16,4 +16,4 @@ main:
 	      STX   0, 1
 	      POP   0, 1
 	      RET   0, 0
-.literal    16  0.000000
+.literal    16  3.500000
