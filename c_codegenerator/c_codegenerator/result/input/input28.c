@@ -157,7 +157,7 @@ L9:
 	      LDA   0, 16
 	      LDA   1, 20
 	      LOD   1, 12
-	     LITI   0, 20
+	     LITI   0, 4
 	     MULI   0, 0
 	   OFFSET   0, 0
 	      LDI   0, 1

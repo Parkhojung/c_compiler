@@ -1,7 +1,7 @@
 	      INT   0, 36
 	      SUP   0, main
 	      RET   0, 0
-main:
+.global    12  0.global    16  0main:
 	      INT   0, 12
 	      INT   0, 12
 	      LDA   0, 20
@@ -13,4 +13,4 @@ main:
 	      STO   0, 1
 	      RET   0, 0
 	      RET   0, 0
-.literal    20  "hello world"
+.literal    20  "hello world\n"

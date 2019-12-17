@@ -9,5 +9,3 @@ int main(int argc, char ** argv ){
     obj.height = 150;
     obj.id = 1;
 }
-
-

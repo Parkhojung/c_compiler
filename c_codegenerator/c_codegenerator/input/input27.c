@@ -1,37 +1,20 @@
-int a[20];
-void sort(int l, int r){
-	int i,j,x,w; int k;
-	i=l;
-	j=r;
-	x=a[(l+r)/2];
-	do{
-		while(a[i]<x)i++;
-		while(x<a[j])j--;
-		if(i<=j){
-			w=a[i];
-			a[i]=a[j];
-			a[j]=w;
-			i++;
-			j--; 
-		}
+void main(){ 
+	int i; int n;
+	int list[5] ;
+	int MAX_SIZE;
 
-	}while(i<=j);
-	if(l<j)sort(l,j);
-	if(i<r)sort(i,r);
-}
-void main( ){    
-	int k;
-	a[0]=0;a[1]=1;a[2]=3;a[3]=5;a[4]=7;
-	a[5]=9;a[6]=2;a[7]=4;a[8]=6;a[9]=8;
-	for(k=0;k<10;k++)
-		printf("%d ",a[k]);
-	printf("\n");
-	sort(0,9);
-	for(k=0;k<10;k++)
-		printf("%d ",a[k]);
-	printf("\n");
-}
+	MAX_SIZE = 5;
+	n = MAX_SIZE;
 	
+	if(1);
+	list[0]=7; 
+	list[1]=5; 
+	list[2]=3; 
+	list[3]=1; 
+	list[4]=4;
 
-
-
+	
+	for(i=0; i<n; i++){ 
+		printf("%d\n", list[i]); 
+	} 
+}

@@ -1,20 +1,17 @@
 file start
-2019. 12. 17. (화) 03:20:30 KST
+2019. 12. 17. (화) 17:30:21 KST
 
 
- ========================= ./input/input1.c =========================
+ ========================= input/input1.c =========================
 ------------------------ code ------------------------
 int a = 3;
 int b = 5;
 
 int main(){
- 	printf("hello world");
+ 	printf("hello world\n");
 	return 0;
 
 }
-
- 
-
 
 start syntax analysis
 	      INT   0, 36
@@ -35,31 +32,14 @@ main:
 ==================================================
 
 
-======== symbol =========
-   1:  printf	-1
-   2:  malloc	-2
-   3:  scanf	-3
-   4:  main	3
+.syntax error at line 4: near 12
 ========  code ==========
    0:  INT	0,36
-   1:  SUP	0,3
+   1:  SUP	0,149598656
    2:  RET	0,0
-   3:  INT	0,12
-   4:  INT	0,12
-   5:  LDA	0,20
-   6:  POP	0,4
-   7:  ADDR	0,-1
-   8:  CAL	0,0
-   9:  LDA	1,-4
-  10:  LITI	0,0
-  11:  STO	0,1
-  12:  RET	0,0
-  13:  RET	0,0
-start execution
-hello worldend execution
 
 
- ========================= ./input/input2.c =========================
+ ========================= input/input2.c =========================
 ------------------------ code ------------------------
 struct person{
     int height;
@@ -72,8 +52,6 @@ int main(int argc, char ** argv ){
     obj.height = 150;
     obj.id = 1;
 }
-
-
 
 start syntax analysis
 	      INT   0, 20
@@ -132,7 +110,7 @@ start execution
 end execution
 
 
- ========================= ./input/input3.c =========================
+ ========================= input/input3.c =========================
 ------------------------ code ------------------------
 struct Point 
 { 
@@ -156,22 +134,15 @@ main:
 ==================================================
 
 
-======== symbol =========
-   1:  printf	-1
-   2:  malloc	-2
-   3:  scanf	-3
-   4:  main	3
+.syntax error at line 6: near 12
 ========  code ==========
    0:  INT	0,20
-   1:  SUP	0,3
+   1:  SUP	0,148488640
    2:  RET	0,0
    3:  INT	0,20
-   4:  RET	0,0
-start execution
-end execution
 
 
- ========================= ./input/input4.c =========================
+ ========================= input/input4.c =========================
 ------------------------ code ------------------------
 struct Point 
 { 
@@ -255,7 +226,7 @@ start execution
 end execution
 
 
- ========================= ./input/input5.c =========================
+ ========================= input/input5.c =========================
 ------------------------ code ------------------------
 // function returning the max between two numbers 
 int max(int num1, int num2) {
@@ -271,8 +242,17 @@ int max(int num1, int num2) {
    return result; 
 }
 
+int main(){
+
+	int res;
+	res = max(3,5);
+	printf("result : %d",res);
+
+	return 0;
+}
+
 start syntax analysis
-	      INT   0, 12
+	      INT   0, 28
 	      SUP   0, main
 	      RET   0, 0
 max:
@@ -297,53 +277,23 @@ L2:
 	      STO   0, 1
 	      RET   0, 0
 	      RET   0, 0
-==================================================
-
-
-======== symbol =========
-   1:  printf	-1
-   2:  malloc	-2
-   3:  scanf	-3
-   4:  max	3
-   5:  L1	13
-   6:  L2	17
-error: undefined identifier main
-
-
- ========================= ./input/input6.c =========================
------------------------- code ------------------------
-int max(int num1, int num2);
- 
-int main () {
-
-   // local variable definition 
-   int a = 100;
-   int b = 200;
-   int ret;
- 
-   // calling a function to get max value 
-   ret = max(a, b);
- 
-//   printf( "Max value is : %d\n", ret );
- 
-   return 0;
-}
-
-start syntax analysis
-	      INT   0, 12
-	      SUP   0, main
-	      RET   0, 0
 main:
-	      INT   0, 24
-	      LDA   1, 20
 	      INT   0, 16
-	      LOD   1, 12
-	      LOD   1, 16
+	      LDA   1, 12
+	      INT   0, 16
+	     LITI   0, 3
+	     LITI   0, 5
 	      POP   0, 5
 	     ADDR   0, max
 	      CAL   0, 0
 	      STX   0, 1
 	      POP   0, 1
+	      INT   0, 12
+	      LDA   0, 12
+	      LOD   1, 12
+	      POP   0, 5
+	     ADDR   0, printf
+	      CAL   0, 0
 	      LDA   1, -4
 	     LITI   0, 0
 	      STO   0, 1
@@ -356,35 +306,199 @@ main:
    1:  printf	-1
    2:  malloc	-2
    3:  scanf	-3
-   4:  main	3
-error: undefined identifier max
+   4:  max	3
+   5:  L1	13
+   6:  L2	17
+   7:  main	22
+========  code ==========
+   0:  INT	0,28
+   1:  SUP	0,22
+   2:  RET	0,0
+   3:  INT	0,24
+   4:  LOD	1,12
+   5:  LOD	1,16
+   6:  GTRI	0,0
+   7:  JPC	0,13
+   8:  LDA	1,20
+   9:  LOD	1,12
+  10:  STX	0,1
+  11:  POP	0,1
+  12:  JMP	0,17
+  13:  LDA	1,20
+  14:  LOD	1,16
+  15:  STX	0,1
+  16:  POP	0,1
+  17:  LDA	1,-4
+  18:  LOD	1,20
+  19:  STO	0,1
+  20:  RET	0,0
+  21:  RET	0,0
+  22:  INT	0,16
+  23:  LDA	1,12
+  24:  INT	0,16
+  25:  LITI	0,3
+  26:  LITI	0,5
+  27:  POP	0,5
+  28:  ADDR	0,3
+  29:  CAL	0,0
+  30:  STX	0,1
+  31:  POP	0,1
+  32:  INT	0,12
+  33:  LDA	0,12
+  34:  LOD	1,12
+  35:  POP	0,5
+  36:  ADDR	0,-1
+  37:  CAL	0,0
+  38:  LDA	1,-4
+  39:  LITI	0,0
+  40:  STO	0,1
+  41:  RET	0,0
+  42:  RET	0,0
+start execution
+result : 5end execution
 
 
- ========================= ./input/input7.c =========================
+ ========================= input/input6.c =========================
+------------------------ code ------------------------
+// function returning the max between two numbers 
+int max(int num1, int num2) {
+
+   // local variable declaration 
+   int result;
+ 
+   if (num1 > num2)
+      result = num1;
+   else
+      result = num2;
+ 
+   return result; 
+}
+ 
+int main () {
+
+   // local variable definition 
+   int a = 100;
+   int b = 200;
+   int ret;
+ 
+   // calling a function to get max value 
+   ret = max(a, b);
+ 
+   printf( "Max value is : %d\n", ret );
+ 
+   return 0;
+}
+
+start syntax analysis
+	      INT   0, 36
+	      SUP   0, main
+	      RET   0, 0
+max:
+	      INT   0, 24
+	      LOD   1, 12
+	      LOD   1, 16
+	     GTRI   0, 0
+	      JPC   0, L1
+	      LDA   1, 20
+	      LOD   1, 12
+	      STX   0, 1
+	      POP   0, 1
+	      JMP   0, L2
+L1:
+	      LDA   1, 20
+	      LOD   1, 16
+	      STX   0, 1
+	      POP   0, 1
+L2:
+	      LDA   1, -4
+	      LOD   1, 20
+	      STO   0, 1
+	      RET   0, 0
+	      RET   0, 0
+main:
+	      INT   0, 24
+	      LDA   1, 20
+	      INT   0, 16
+	      LOD   1, 12
+	      LOD   1, 16
+	      POP   0, 5
+	     ADDR   0, max
+	      CAL   0, 0
+	      STX   0, 1
+	      POP   0, 1
+	      INT   0, 12
+	      LDA   0, 12
+	      LOD   1, 20
+	      POP   0, 5
+	     ADDR   0, printf
+	      CAL   0, 0
+	      LDA   1, -4
+	     LITI   0, 0
+	      STO   0, 1
+	      RET   0, 0
+	      RET   0, 0
+==================================================
+
+
+.syntax error at line 28: near 12
+========  code ==========
+   0:  INT	0,36
+   1:  SUP	0,145232320
+   2:  RET	0,0
+   3:  INT	0,24
+   4:  LOD	1,12
+   5:  LOD	1,16
+   6:  GTRI	0,0
+   7:  JPC	0,145232352
+   8:  LDA	1,20
+   9:  LOD	1,12
+  10:  STX	0,1
+  11:  POP	0,1
+  12:  JMP	0,145232368
+  13:  LDA	1,20
+  14:  LOD	1,16
+  15:  STX	0,1
+  16:  POP	0,1
+  17:  LDA	1,-4
+  18:  LOD	1,20
+  19:  STO	0,1
+  20:  RET	0,0
+  21:  RET	0,0
+  22:  INT	0,24
+
+
+ ========================= input/input7.c =========================
 ------------------------ code ------------------------
 int main() {
   int values[5];
   int i;
-//  printf("Enter 5 integers: ");
+  printf("Enter 5 integers: ");
   
 // taking input and storing it in an array
   for(i = 0; i < 5; ++i) {
+	values[i] = i;
 //     scanf("%d", &values[i]);
   }
-//  printf("Displaying integers: ");
+  printf("Displaying integers: ");
   // printing elements of an array
   for(i = 0; i < 5; ++i) {
-//     printf("%d\n", values[i]);
+     printf("%d\n", values[i]);
   }
   return 0;
 }
 
+
 start syntax analysis
-	      INT   0, 12
+	      INT   0, 68
 	      SUP   0, main
 	      RET   0, 0
 main:
 	      INT   0, 36
+	      INT   0, 12
+	      LDA   0, 12
+	      POP   0, 4
+	     ADDR   0, printf
+	      CAL   0, 0
 	      LDA   1, 32
 	     LITI   0, 0
 	      STX   0, 1
@@ -394,6 +508,14 @@ L2:
 	     LITI   0, 5
 	     LSSI   0, 0
 	      JPC   0, L3
+	      LDA   1, 12
+	      LOD   1, 32
+	     LITI   0, 4
+	     MULI   0, 0
+	   OFFSET   0, 0
+	      LOD   1, 32
+	      STX   0, 1
+	      POP   0, 1
 L1:
 	      LDA   1, 32
 	      LDX   0, 1
@@ -402,6 +524,11 @@ L1:
 	      POP   0, 1
 	      JMP   0, L2
 L3:
+	      INT   0, 12
+	      LDA   0, 36
+	      POP   0, 4
+	     ADDR   0, printf
+	      CAL   0, 0
 	      LDA   1, 32
 	     LITI   0, 0
 	      STX   0, 1
@@ -411,6 +538,17 @@ L5:
 	     LITI   0, 5
 	     LSSI   0, 0
 	      JPC   0, L6
+	      INT   0, 12
+	      LDA   0, 60
+	      LDA   1, 12
+	      LOD   1, 32
+	     LITI   0, 4
+	     MULI   0, 0
+	   OFFSET   0, 0
+	      LDI   0, 1
+	      POP   0, 5
+	     ADDR   0, printf
+	      CAL   0, 0
 L4:
 	      LDA   1, 32
 	      LDX   0, 1
@@ -432,55 +570,89 @@ L6:
    2:  malloc	-2
    3:  scanf	-3
    4:  main	3
-   5:  L2	8
-   6:  L1	12
-   7:  L3	18
-   8:  L5	22
-   9:  L4	26
-  10:  L6	32
+   5:  L2	13
+   6:  L1	25
+   7:  L3	31
+   8:  L5	40
+   9:  L4	55
+  10:  L6	61
 ========  code ==========
-   0:  INT	0,12
+   0:  INT	0,68
    1:  SUP	0,3
    2:  RET	0,0
    3:  INT	0,36
-   4:  LDA	1,32
-   5:  LITI	0,0
-   6:  STX	0,1
-   7:  POP	0,1
-   8:  LOD	1,32
-   9:  LITI	0,5
-  10:  LSSI	0,0
-  11:  JPC	0,18
-  12:  LDA	1,32
-  13:  LDX	0,1
-  14:  INCI	0,0
-  15:  STX	0,1
-  16:  POP	0,1
-  17:  JMP	0,8
-  18:  LDA	1,32
-  19:  LITI	0,0
-  20:  STX	0,1
-  21:  POP	0,1
+   4:  INT	0,12
+   5:  LDA	0,12
+   6:  POP	0,4
+   7:  ADDR	0,-1
+   8:  CAL	0,0
+   9:  LDA	1,32
+  10:  LITI	0,0
+  11:  STX	0,1
+  12:  POP	0,1
+  13:  LOD	1,32
+  14:  LITI	0,5
+  15:  LSSI	0,0
+  16:  JPC	0,31
+  17:  LDA	1,12
+  18:  LOD	1,32
+  19:  LITI	0,4
+  20:  MULI	0,0
+  21:  OFFSET	0,0
   22:  LOD	1,32
-  23:  LITI	0,5
-  24:  LSSI	0,0
-  25:  JPC	0,32
-  26:  LDA	1,32
-  27:  LDX	0,1
-  28:  INCI	0,0
-  29:  STX	0,1
-  30:  POP	0,1
-  31:  JMP	0,22
-  32:  LDA	1,-4
-  33:  LITI	0,0
-  34:  STO	0,1
-  35:  RET	0,0
-  36:  RET	0,0
+  23:  STX	0,1
+  24:  POP	0,1
+  25:  LDA	1,32
+  26:  LDX	0,1
+  27:  INCI	0,0
+  28:  STX	0,1
+  29:  POP	0,1
+  30:  JMP	0,13
+  31:  INT	0,12
+  32:  LDA	0,36
+  33:  POP	0,4
+  34:  ADDR	0,-1
+  35:  CAL	0,0
+  36:  LDA	1,32
+  37:  LITI	0,0
+  38:  STX	0,1
+  39:  POP	0,1
+  40:  LOD	1,32
+  41:  LITI	0,5
+  42:  LSSI	0,0
+  43:  JPC	0,61
+  44:  INT	0,12
+  45:  LDA	0,60
+  46:  LDA	1,12
+  47:  LOD	1,32
+  48:  LITI	0,4
+  49:  MULI	0,0
+  50:  OFFSET	0,0
+  51:  LDI	0,1
+  52:  POP	0,5
+  53:  ADDR	0,-1
+  54:  CAL	0,0
+  55:  LDA	1,32
+  56:  LDX	0,1
+  57:  INCI	0,0
+  58:  STX	0,1
+  59:  POP	0,1
+  60:  JMP	0,40
+  61:  LDA	1,-4
+  62:  LITI	0,0
+  63:  STO	0,1
+  64:  RET	0,0
+  65:  RET	0,0
 start execution
+Enter 5 integers: Displaying integers: 0
+1
+2
+3
+4
 end execution
 
 
- ========================= ./input/input8.c =========================
+ ========================= input/input8.c =========================
 ------------------------ code ------------------------
 int main(int argc, char **argv){
 
@@ -530,11 +702,11 @@ start execution
 end execution
 
 
- ========================= ./input/input9.c =========================
+ ========================= input/input9.c =========================
 ------------------------ code ------------------------
 void fun(){
 	int a = 3;
-	
+	printf("a: %d\n",a); 	
 }
 
 int main(){
@@ -545,11 +717,17 @@ int main(){
 }
 
 start syntax analysis
-	      INT   0, 12
+	      INT   0, 24
 	      SUP   0, main
 	      RET   0, 0
 fun:
 	      INT   0, 16
+	      INT   0, 12
+	      LDA   0, 12
+	      LOD   1, 12
+	      POP   0, 5
+	     ADDR   0, printf
+	      CAL   0, 0
 	      RET   0, 0
 main:
 	      INT   0, 12
@@ -565,45 +743,30 @@ main:
 ==================================================
 
 
-======== symbol =========
-   1:  printf	-1
-   2:  malloc	-2
-   3:  scanf	-3
-   4:  fun	3
-   5:  main	5
+.syntax error at line 6: near 12
 ========  code ==========
-   0:  INT	0,12
-   1:  SUP	0,5
+   0:  INT	0,24
+   1:  SUP	0,141795776
    2:  RET	0,0
    3:  INT	0,16
-   4:  RET	0,0
-   5:  INT	0,12
-   6:  INT	0,12
-   7:  POP	0,3
-   8:  ADDR	0,3
-   9:  CAL	0,0
-  10:  LDA	1,-4
-  11:  LITI	0,0
-  12:  STO	0,1
-  13:  RET	0,0
-  14:  RET	0,0
-start execution
-end execution
 
 
- ========================= ./input/input10.c =========================
+ ========================= input/input10.c =========================
 ------------------------ code ------------------------
 enum {MON, TUE, WED, THU, FRI} date;
 
 int main(int args, char ** argv){
 
 	date = MON;
-	
+	printf("date: %d\n",date);
+
+	return 0;
 }
+
 
 start syntax analysis
 --- warning at line 5:incompatible types in assignment expression
-	      INT   0, 16
+	      INT   0, 32
 	      SUP   0, main
 	      RET   0, 0
 main:
@@ -612,6 +775,16 @@ main:
 	     LITI   0, 0
 	      STX   0, 1
 	      POP   0, 1
+	      INT   0, 12
+	      LDA   0, 16
+	      LOD   0, 12
+	      POP   0, 5
+	     ADDR   0, printf
+	      CAL   0, 0
+	      LDA   1, -4
+	     LITI   0, 0
+	      STO   0, 1
+	      RET   0, 0
 	      RET   0, 0
 ==================================================
 
@@ -622,7 +795,7 @@ main:
    3:  scanf	-3
    4:  main	3
 ========  code ==========
-   0:  INT	0,16
+   0:  INT	0,32
    1:  SUP	0,3
    2:  RET	0,0
    3:  INT	0,20
@@ -630,12 +803,23 @@ main:
    5:  LITI	0,0
    6:  STX	0,1
    7:  POP	0,1
-   8:  RET	0,0
+   8:  INT	0,12
+   9:  LDA	0,16
+  10:  LOD	0,12
+  11:  POP	0,5
+  12:  ADDR	0,-1
+  13:  CAL	0,0
+  14:  LDA	1,-4
+  15:  LITI	0,0
+  16:  STO	0,1
+  17:  RET	0,0
+  18:  RET	0,0
 start execution
+date: 0
 end execution
 
 
- ========================= ./input/input11.c =========================
+ ========================= input/input11.c =========================
 ------------------------ code ------------------------
 typedef mytype int
 
@@ -646,7 +830,11 @@ int main(){
 	
 	a = 3;
 	c = a+2;
+	
+	printf("a: %d\n",a);
+	printf("c=a+2: %d\n",c);
 }
+
 
 start syntax analysis
 line 1: syntax error near int 
@@ -657,7 +845,7 @@ syntax error at line 1: near
 ========  code ==========
 
 
- ========================= ./input/input12.c =========================
+ ========================= input/input12.c =========================
 ------------------------ code ------------------------
 union {int a; float b;} myvar;
 
@@ -665,10 +853,12 @@ int main(){
 
 	myvar.a = 3;
 	myvar.b = 3.5;	
+	printf("myvar: %f\n",myvar);
 }
 
+
 start syntax analysis
-	      INT   0, 20
+	      INT   0, 36
 	      SUP   0, main
 	      RET   0, 0
 main:
@@ -685,6 +875,13 @@ main:
 	      LOD   0, 16
 	      STX   0, 1
 	      POP   0, 1
+	      INT   0, 12
+	      LDA   0, 20
+	      LDA   0, 12
+	      LDI   0, 1
+	      POP   0, 5
+	     ADDR   0, printf
+	      CAL   0, 0
 	      RET   0, 0
 ==================================================
 
@@ -695,7 +892,7 @@ main:
    3:  scanf	-3
    4:  main	3
 ========  code ==========
-   0:  INT	0,20
+   0:  INT	0,36
    1:  SUP	0,3
    2:  RET	0,0
    3:  INT	0,12
@@ -711,12 +908,20 @@ main:
   13:  LOD	0,16
   14:  STX	0,1
   15:  POP	0,1
-  16:  RET	0,0
+  16:  INT	0,12
+  17:  LDA	0,20
+  18:  LDA	0,12
+  19:  LDI	0,1
+  20:  POP	0,5
+  21:  ADDR	0,-1
+  22:  CAL	0,0
+  23:  RET	0,0
 start execution
+myvar: 0.000000
 end execution
 
 
- ========================= ./input/input13.c =========================
+ ========================= input/input13.c =========================
 ------------------------ code ------------------------
 int main(int args, char ** argv){
 
@@ -733,7 +938,7 @@ syntax error at line 1: near
 ========  code ==========
 
 
- ========================= ./input/input14.c =========================
+ ========================= input/input14.c =========================
 ------------------------ code ------------------------
 int fun();
 
@@ -745,6 +950,7 @@ int main(){
 
 void fun();
 
+
 start syntax analysis
 line 9: syntax error: redeclaration of identifier fun near ;
 ==================================================
@@ -754,12 +960,14 @@ syntax error at line 1: near
 ========  code ==========
 
 
- ========================= ./input/input15.c =========================
+ ========================= input/input15.c =========================
 ------------------------ code ------------------------
 int main(){
+	int res;
+	res=fun(3);
+	printf("res: %d\n", res);
 
-	fun(3);
-
+	return 0;
 }
 
 int fun(int b){
@@ -777,14 +985,13 @@ syntax error at line 1: near
 ========  code ==========
 
 
- ========================= ./input/input16.c =========================
+ ========================= input/input16.c =========================
 ------------------------ code ------------------------
 fun(){
 
 
 
 }
-
 
 
 start syntax analysis
@@ -805,10 +1012,9 @@ fun:
 error: undefined identifier main
 
 
- ========================= ./input/input17.c =========================
+ ========================= input/input17.c =========================
 ------------------------ code ------------------------
 void a = 3;
-
 
 start syntax analysis
 	      INT   0, 12
@@ -817,14 +1023,15 @@ start syntax analysis
 ==================================================
 
 
-======== symbol =========
-   1:  printf	-1
-   2:  malloc	-2
-   3:  scanf	-3
-error: undefined identifier main
+.syntax error at line 4: near 12
+========  code ==========
+   0:  INT	0,12
+   1:  SUP	0,147542464
+   2:  RET	0,0
 
 
- ========================= ./input/input18.c =========================
+ ========================= input/input18.c =========================
+------------------------ code ------------------------
 ------------------------ code ------------------------
 fun(){
 
@@ -834,7 +1041,7 @@ fun(){
 }
 
 start syntax analysis
-line 4: syntax error near = 
+line 1: syntax error near -- 
 ==================================================
 
 
@@ -842,7 +1049,7 @@ syntax error at line 1: near
 ========  code ==========
 
 
- ========================= ./input/input19.c =========================
+ ========================= input/input19.c =========================
 ------------------------ code ------------------------
 fun(){
 
@@ -869,16 +1076,17 @@ fun:
 error: undefined identifier main
 
 
- ========================= ./input/input20.c =========================
+ ========================= input/input20.c =========================
 ------------------------ code ------------------------
 fun(){
 
-	struct s myvar;
-
+	struct s{
+		int a = 3;
+	};
 }
 
 start syntax analysis
-line 5: syntax error: incomplete forward reference for identifier s near }
+line 4: syntax error near = 
 ==================================================
 
 
@@ -886,7 +1094,7 @@ syntax error at line 1: near
 ========  code ==========
 
 
- ========================= ./input/input21.c =========================
+ ========================= input/input21.c =========================
 ------------------------ code ------------------------
 fun(){
 	gun();
@@ -900,6 +1108,7 @@ gun(){
 
 }
 
+
 start syntax analysis
 line 2: syntax error: undefined identifier gun near gun
 ==================================================
@@ -909,7 +1118,7 @@ syntax error at line 1: near
 ========  code ==========
 
 
- ========================= ./input/input22.c =========================
+ ========================= input/input22.c =========================
 ------------------------ code ------------------------
 struct s myvar;
 
@@ -929,7 +1138,7 @@ syntax error at line 1: near
 ========  code ==========
 
 
- ========================= ./input/input23.c =========================
+ ========================= input/input23.c =========================
 ------------------------ code ------------------------
 fun(struct s{int id;} a, struct s b){
 	struct s c;
@@ -953,7 +1162,7 @@ fun:
 error: undefined identifier main
 
 
- ========================= ./input/input24.c =========================
+ ========================= input/input24.c =========================
 ------------------------ code ------------------------
 fun(struct s{int a;} a, struct s b){
 
@@ -977,7 +1186,7 @@ fun:
 error: undefined identifier main
 
 
- ========================= ./input/input25.c =========================
+ ========================= input/input25.c =========================
 ------------------------ code ------------------------
 int main()
 {
@@ -985,15 +1194,35 @@ int main()
 	float* b;
 	int c[10];
 
-
+	printf("a size: %d\n",sizeof(a));
+	printf("b size: %d\n",sizeof(b));
+	printf("c size: %d\n",sizeof(c));
 }
 
 start syntax analysis
-	      INT   0, 12
+	      INT   0, 60
 	      SUP   0, main
 	      RET   0, 0
 main:
 	      INT   0, 60
+	      INT   0, 12
+	      LDA   0, 12
+	     LITI   0, 4
+	      POP   0, 5
+	     ADDR   0, printf
+	      CAL   0, 0
+	      INT   0, 12
+	      LDA   0, 28
+	     LITI   0, 4
+	      POP   0, 5
+	     ADDR   0, printf
+	      CAL   0, 0
+	      INT   0, 12
+	      LDA   0, 44
+	     LITI   0, 40
+	      POP   0, 5
+	     ADDR   0, printf
+	      CAL   0, 0
 	      RET   0, 0
 ==================================================
 
@@ -1004,16 +1233,37 @@ main:
    3:  scanf	-3
    4:  main	3
 ========  code ==========
-   0:  INT	0,12
+   0:  INT	0,60
    1:  SUP	0,3
    2:  RET	0,0
    3:  INT	0,60
-   4:  RET	0,0
+   4:  INT	0,12
+   5:  LDA	0,12
+   6:  LITI	0,4
+   7:  POP	0,5
+   8:  ADDR	0,-1
+   9:  CAL	0,0
+  10:  INT	0,12
+  11:  LDA	0,28
+  12:  LITI	0,4
+  13:  POP	0,5
+  14:  ADDR	0,-1
+  15:  CAL	0,0
+  16:  INT	0,12
+  17:  LDA	0,44
+  18:  LITI	0,40
+  19:  POP	0,5
+  20:  ADDR	0,-1
+  21:  CAL	0,0
+  22:  RET	0,0
 start execution
+a size: 4
+b size: 4
+c size: 40
 end execution
 
 
- ========================= ./input/input26.c =========================
+ ========================= input/input26.c =========================
 ------------------------ code ------------------------
 int multiply(int a, int b) {
     int result;
@@ -1166,3 +1416,1343 @@ main:
 start execution
 result=360
 end execution
+
+
+ ========================= input/input27.c =========================
+------------------------ code ------------------------
+void main(){ 
+	int i; int n;
+	int list[5] ;
+	int MAX_SIZE;
+
+	MAX_SIZE = 5;
+	n = MAX_SIZE;
+	
+	if(1);
+	list[0]=7; 
+	list[1]=5; 
+	list[2]=3; 
+	list[3]=1; 
+	list[4]=4;
+
+	
+	for(i=0; i<n; i++){ 
+		printf("%d\n", list[i]); 
+	} 
+}
+
+start syntax analysis
+	      INT   0, 20
+	      SUP   0, main
+	      RET   0, 0
+main:
+	      INT   0, 44
+	      LDA   1, 40
+	     LITI   0, 5
+	      STX   0, 1
+	      POP   0, 1
+	      LDA   1, 16
+	      LOD   1, 40
+	      STX   0, 1
+	      POP   0, 1
+	     LITI   0, 1
+	      JPC   0, L1
+L1:
+	      LDA   1, 20
+	     LITI   0, 0
+	     LITI   0, 4
+	     MULI   0, 0
+	   OFFSET   0, 0
+	     LITI   0, 7
+	      STX   0, 1
+	      POP   0, 1
+	      LDA   1, 20
+	     LITI   0, 1
+	     LITI   0, 4
+	     MULI   0, 0
+	   OFFSET   0, 0
+	     LITI   0, 5
+	      STX   0, 1
+	      POP   0, 1
+	      LDA   1, 20
+	     LITI   0, 2
+	     LITI   0, 4
+	     MULI   0, 0
+	   OFFSET   0, 0
+	     LITI   0, 3
+	      STX   0, 1
+	      POP   0, 1
+	      LDA   1, 20
+	     LITI   0, 3
+	     LITI   0, 4
+	     MULI   0, 0
+	   OFFSET   0, 0
+	     LITI   0, 1
+	      STX   0, 1
+	      POP   0, 1
+	      LDA   1, 20
+	     LITI   0, 4
+	     LITI   0, 4
+	     MULI   0, 0
+	   OFFSET   0, 0
+	     LITI   0, 4
+	      STX   0, 1
+	      POP   0, 1
+	      LDA   1, 12
+	     LITI   0, 0
+	      STX   0, 1
+	      POP   0, 1
+L3:
+	      LOD   1, 12
+	      LOD   1, 16
+	     LSSI   0, 0
+	      JPC   0, L4
+	      INT   0, 12
+	      LDA   0, 12
+	      LDA   1, 20
+	      LOD   1, 12
+	     LITI   0, 4
+	     MULI   0, 0
+	   OFFSET   0, 0
+	      LDI   0, 1
+	      POP   0, 5
+	     ADDR   0, printf
+	      CAL   0, 0
+L2:
+	      LOD   1, 12
+	      LDA   1, 12
+	      LDX   0, 1
+	     INCI   0, 0
+	      STO   0, 1
+	      POP   0, 1
+	      JMP   0, L3
+L4:
+	      RET   0, 0
+==================================================
+
+
+======== symbol =========
+   1:  printf	-1
+   2:  malloc	-2
+   3:  scanf	-3
+   4:  main	3
+   5:  L1	14
+   6:  L3	58
+   7:  L2	73
+   8:  L4	80
+========  code ==========
+   0:  INT	0,20
+   1:  SUP	0,3
+   2:  RET	0,0
+   3:  INT	0,44
+   4:  LDA	1,40
+   5:  LITI	0,5
+   6:  STX	0,1
+   7:  POP	0,1
+   8:  LDA	1,16
+   9:  LOD	1,40
+  10:  STX	0,1
+  11:  POP	0,1
+  12:  LITI	0,1
+  13:  JPC	0,14
+  14:  LDA	1,20
+  15:  LITI	0,0
+  16:  LITI	0,4
+  17:  MULI	0,0
+  18:  OFFSET	0,0
+  19:  LITI	0,7
+  20:  STX	0,1
+  21:  POP	0,1
+  22:  LDA	1,20
+  23:  LITI	0,1
+  24:  LITI	0,4
+  25:  MULI	0,0
+  26:  OFFSET	0,0
+  27:  LITI	0,5
+  28:  STX	0,1
+  29:  POP	0,1
+  30:  LDA	1,20
+  31:  LITI	0,2
+  32:  LITI	0,4
+  33:  MULI	0,0
+  34:  OFFSET	0,0
+  35:  LITI	0,3
+  36:  STX	0,1
+  37:  POP	0,1
+  38:  LDA	1,20
+  39:  LITI	0,3
+  40:  LITI	0,4
+  41:  MULI	0,0
+  42:  OFFSET	0,0
+  43:  LITI	0,1
+  44:  STX	0,1
+  45:  POP	0,1
+  46:  LDA	1,20
+  47:  LITI	0,4
+  48:  LITI	0,4
+  49:  MULI	0,0
+  50:  OFFSET	0,0
+  51:  LITI	0,4
+  52:  STX	0,1
+  53:  POP	0,1
+  54:  LDA	1,12
+  55:  LITI	0,0
+  56:  STX	0,1
+  57:  POP	0,1
+  58:  LOD	1,12
+  59:  LOD	1,16
+  60:  LSSI	0,0
+  61:  JPC	0,80
+  62:  INT	0,12
+  63:  LDA	0,12
+  64:  LDA	1,20
+  65:  LOD	1,12
+  66:  LITI	0,4
+  67:  MULI	0,0
+  68:  OFFSET	0,0
+  69:  LDI	0,1
+  70:  POP	0,5
+  71:  ADDR	0,-1
+  72:  CAL	0,0
+  73:  LOD	1,12
+  74:  LDA	1,12
+  75:  LDX	0,1
+  76:  INCI	0,0
+  77:  STO	0,1
+  78:  POP	0,1
+  79:  JMP	0,58
+  80:  RET	0,0
+start execution
+7
+5
+3
+1
+4
+end execution
+
+
+ ========================= input/input28.c =========================
+------------------------ code ------------------------
+//# include <stdio.h> 
+int MAX_SIZE;
+void bubble_sort(int list[], int n){ 
+	int i, j, temp; 
+	for(i=n-1; i>0; i--){ // 0 ~ (i-1)까지 반복 
+		for(j=0; j<i; j++){ // j번째와 j+1번째의 요소가 크기 순이 아니면 교환 
+			if(list[j]<list[j+1])
+			{ 
+				temp = list[j]; 
+				list[j] = list[j+1]; 
+				list[j+1] = temp; 
+			} 
+		} 
+	}
+	return;
+} 
+
+void main(){ 
+	int i; int n;
+	int list[5] ;
+	
+	MAX_SIZE = 5;
+	n = MAX_SIZE;
+	
+	list[0]=7; 
+	list[1]=5; 
+	list[2]=3; 
+	list[3]=1; 
+	list[4]=4;
+
+	//bubble_sort(list, n); // 정렬 결과 출력 
+	for(i=0; i<n; i++){ 
+		printf("%d\n", list[i]); 
+	} 
+}
+
+start syntax analysis
+	      INT   0, 24
+	      SUP   0, main
+	      RET   0, 0
+bubble_sort:
+	      INT   0, 32
+	      LDA   1, 20
+	      LOD   1, 16
+	     LITI   0, 1
+	     SUBI   0, 0
+	      STX   0, 1
+	      POP   0, 1
+L2:
+	      LOD   1, 20
+	     LITI   0, 0
+	     GTRI   0, 0
+	      JPC   0, L3
+	      LDA   1, 24
+	     LITI   0, 0
+	      STX   0, 1
+	      POP   0, 1
+L5:
+	      LOD   1, 24
+	      LOD   1, 20
+	     LSSI   0, 0
+	      JPC   0, L6
+	      LOD   1, 12
+	      LOD   1, 24
+	     LITI   0, 4
+	     MULI   0, 0
+	   OFFSET   0, 0
+	      LDI   0, 1
+	      LOD   1, 12
+	      LOD   1, 24
+	     LITI   0, 1
+	     ADDI   0, 0
+	     LITI   0, 4
+	     MULI   0, 0
+	   OFFSET   0, 0
+	      LDI   0, 1
+	     LSSI   0, 0
+	      JPC   0, L7
+	      LDA   1, 28
+	      LOD   1, 12
+	      LOD   1, 24
+	     LITI   0, 4
+	     MULI   0, 0
+	   OFFSET   0, 0
+	      LDI   0, 1
+	      STX   0, 1
+	      POP   0, 1
+	      LOD   1, 12
+	      LOD   1, 24
+	     LITI   0, 4
+	     MULI   0, 0
+	   OFFSET   0, 0
+	      LOD   1, 12
+	      LOD   1, 24
+	     LITI   0, 1
+	     ADDI   0, 0
+	     LITI   0, 4
+	     MULI   0, 0
+	   OFFSET   0, 0
+	      LDI   0, 1
+	      STX   0, 1
+	      POP   0, 1
+	      LOD   1, 12
+	      LOD   1, 24
+	     LITI   0, 1
+	     ADDI   0, 0
+	     LITI   0, 4
+	     MULI   0, 0
+	   OFFSET   0, 0
+	      LOD   1, 28
+	      STX   0, 1
+	      POP   0, 1
+L7:
+L4:
+	      LOD   1, 24
+	      LDA   1, 24
+	      LDX   0, 1
+	     INCI   0, 0
+	      STO   0, 1
+	      POP   0, 1
+	      JMP   0, L5
+L6:
+L1:
+	      LOD   1, 20
+	      LDA   1, 20
+	      LDX   0, 1
+	     DECI   0, 0
+	      STO   0, 1
+	      POP   0, 1
+	      JMP   0, L2
+L3:
+	      RET   0, 0
+	      RET   0, 0
+main:
+	      INT   0, 40
+	      LDA   0, 12
+	     LITI   0, 5
+	      STX   0, 1
+	      POP   0, 1
+	      LDA   1, 16
+	      LOD   0, 12
+	      STX   0, 1
+	      POP   0, 1
+	      LDA   1, 20
+	     LITI   0, 0
+	     LITI   0, 4
+	     MULI   0, 0
+	   OFFSET   0, 0
+	     LITI   0, 7
+	      STX   0, 1
+	      POP   0, 1
+	      LDA   1, 20
+	     LITI   0, 1
+	     LITI   0, 4
+	     MULI   0, 0
+	   OFFSET   0, 0
+	     LITI   0, 5
+	      STX   0, 1
+	      POP   0, 1
+	      LDA   1, 20
+	     LITI   0, 2
+	     LITI   0, 4
+	     MULI   0, 0
+	   OFFSET   0, 0
+	     LITI   0, 3
+	      STX   0, 1
+	      POP   0, 1
+	      LDA   1, 20
+	     LITI   0, 3
+	     LITI   0, 4
+	     MULI   0, 0
+	   OFFSET   0, 0
+	     LITI   0, 1
+	      STX   0, 1
+	      POP   0, 1
+	      LDA   1, 20
+	     LITI   0, 4
+	     LITI   0, 4
+	     MULI   0, 0
+	   OFFSET   0, 0
+	     LITI   0, 4
+	      STX   0, 1
+	      POP   0, 1
+	      LDA   1, 12
+	     LITI   0, 0
+	      STX   0, 1
+	      POP   0, 1
+L9:
+	      LOD   1, 12
+	      LOD   1, 16
+	     LSSI   0, 0
+	      JPC   0, L10
+	      INT   0, 12
+	      LDA   0, 16
+	      LDA   1, 20
+	      LOD   1, 12
+	     LITI   0, 4
+	     MULI   0, 0
+	   OFFSET   0, 0
+	      LDI   0, 1
+	      POP   0, 5
+	     ADDR   0, printf
+	      CAL   0, 0
+L8:
+	      LOD   1, 12
+	      LDA   1, 12
+	      LDX   0, 1
+	     INCI   0, 0
+	      STO   0, 1
+	      POP   0, 1
+	      JMP   0, L9
+L10:
+	      RET   0, 0
+==================================================
+
+
+======== symbol =========
+   1:  printf	-1
+   2:  malloc	-2
+   3:  scanf	-3
+   4:  bubble_sort	3
+   5:  L2	10
+   6:  L5	18
+   7:  L7	72
+   8:  L4	72
+   9:  L6	79
+  10:  L1	79
+  11:  L3	86
+  12:  main	88
+  13:  L9	141
+  14:  L8	156
+  15:  L10	163
+========  code ==========
+   0:  INT	0,24
+   1:  SUP	0,88
+   2:  RET	0,0
+   3:  INT	0,32
+   4:  LDA	1,20
+   5:  LOD	1,16
+   6:  LITI	0,1
+   7:  SUBI	0,0
+   8:  STX	0,1
+   9:  POP	0,1
+  10:  LOD	1,20
+  11:  LITI	0,0
+  12:  GTRI	0,0
+  13:  JPC	0,86
+  14:  LDA	1,24
+  15:  LITI	0,0
+  16:  STX	0,1
+  17:  POP	0,1
+  18:  LOD	1,24
+  19:  LOD	1,20
+  20:  LSSI	0,0
+  21:  JPC	0,79
+  22:  LOD	1,12
+  23:  LOD	1,24
+  24:  LITI	0,4
+  25:  MULI	0,0
+  26:  OFFSET	0,0
+  27:  LDI	0,1
+  28:  LOD	1,12
+  29:  LOD	1,24
+  30:  LITI	0,1
+  31:  ADDI	0,0
+  32:  LITI	0,4
+  33:  MULI	0,0
+  34:  OFFSET	0,0
+  35:  LDI	0,1
+  36:  LSSI	0,0
+  37:  JPC	0,72
+  38:  LDA	1,28
+  39:  LOD	1,12
+  40:  LOD	1,24
+  41:  LITI	0,4
+  42:  MULI	0,0
+  43:  OFFSET	0,0
+  44:  LDI	0,1
+  45:  STX	0,1
+  46:  POP	0,1
+  47:  LOD	1,12
+  48:  LOD	1,24
+  49:  LITI	0,4
+  50:  MULI	0,0
+  51:  OFFSET	0,0
+  52:  LOD	1,12
+  53:  LOD	1,24
+  54:  LITI	0,1
+  55:  ADDI	0,0
+  56:  LITI	0,4
+  57:  MULI	0,0
+  58:  OFFSET	0,0
+  59:  LDI	0,1
+  60:  STX	0,1
+  61:  POP	0,1
+  62:  LOD	1,12
+  63:  LOD	1,24
+  64:  LITI	0,1
+  65:  ADDI	0,0
+  66:  LITI	0,4
+  67:  MULI	0,0
+  68:  OFFSET	0,0
+  69:  LOD	1,28
+  70:  STX	0,1
+  71:  POP	0,1
+  72:  LOD	1,24
+  73:  LDA	1,24
+  74:  LDX	0,1
+  75:  INCI	0,0
+  76:  STO	0,1
+  77:  POP	0,1
+  78:  JMP	0,18
+  79:  LOD	1,20
+  80:  LDA	1,20
+  81:  LDX	0,1
+  82:  DECI	0,0
+  83:  STO	0,1
+  84:  POP	0,1
+  85:  JMP	0,10
+  86:  RET	0,0
+  87:  RET	0,0
+  88:  INT	0,40
+  89:  LDA	0,12
+  90:  LITI	0,5
+  91:  STX	0,1
+  92:  POP	0,1
+  93:  LDA	1,16
+  94:  LOD	0,12
+  95:  STX	0,1
+  96:  POP	0,1
+  97:  LDA	1,20
+  98:  LITI	0,0
+  99:  LITI	0,4
+ 100:  MULI	0,0
+ 101:  OFFSET	0,0
+ 102:  LITI	0,7
+ 103:  STX	0,1
+ 104:  POP	0,1
+ 105:  LDA	1,20
+ 106:  LITI	0,1
+ 107:  LITI	0,4
+ 108:  MULI	0,0
+ 109:  OFFSET	0,0
+ 110:  LITI	0,5
+ 111:  STX	0,1
+ 112:  POP	0,1
+ 113:  LDA	1,20
+ 114:  LITI	0,2
+ 115:  LITI	0,4
+ 116:  MULI	0,0
+ 117:  OFFSET	0,0
+ 118:  LITI	0,3
+ 119:  STX	0,1
+ 120:  POP	0,1
+ 121:  LDA	1,20
+ 122:  LITI	0,3
+ 123:  LITI	0,4
+ 124:  MULI	0,0
+ 125:  OFFSET	0,0
+ 126:  LITI	0,1
+ 127:  STX	0,1
+ 128:  POP	0,1
+ 129:  LDA	1,20
+ 130:  LITI	0,4
+ 131:  LITI	0,4
+ 132:  MULI	0,0
+ 133:  OFFSET	0,0
+ 134:  LITI	0,4
+ 135:  STX	0,1
+ 136:  POP	0,1
+ 137:  LDA	1,12
+ 138:  LITI	0,0
+ 139:  STX	0,1
+ 140:  POP	0,1
+ 141:  LOD	1,12
+ 142:  LOD	1,16
+ 143:  LSSI	0,0
+ 144:  JPC	0,163
+ 145:  INT	0,12
+ 146:  LDA	0,16
+ 147:  LDA	1,20
+ 148:  LOD	1,12
+ 149:  LITI	0,4
+ 150:  MULI	0,0
+ 151:  OFFSET	0,0
+ 152:  LDI	0,1
+ 153:  POP	0,5
+ 154:  ADDR	0,-1
+ 155:  CAL	0,0
+ 156:  LOD	1,12
+ 157:  LDA	1,12
+ 158:  LDX	0,1
+ 159:  INCI	0,0
+ 160:  STO	0,1
+ 161:  POP	0,1
+ 162:  JMP	0,141
+ 163:  RET	0,0
+start execution
+7
+5
+3
+1
+4
+end execution
+
+
+ ========================= input/input29.c =========================
+------------------------ code ------------------------
+int a[20];
+void sort(int l, int r){
+	int i,j,x,w; int k;
+	i=l;
+	j=r;
+	x=a[(l+r)/2];
+	printf("a[1] size : %d\n",sizeof(a[1]));
+	do{
+		while(a[i]<x)i++;
+		while(x<a[j])j--;
+		if(i<=j){
+			w=a[i];
+			a[i]=a[j];
+			a[j]=w;
+			i++;
+			j--; 
+		}
+
+	}while(i<=j);
+	if(l<j)sort(l,j);
+	if(i<r)sort(i,r);
+}
+void main( ){    
+	int k;
+	a[0]=0;a[1]=1;a[2]=3;a[3]=5;a[4]=7;
+	a[5]=9;a[6]=2;a[7]=4;a[8]=6;a[9]=8;
+	for(k=0;k<10;k++)
+		printf("%d ",a[k]);
+	printf("\n");
+	sort(0,9);
+	for(k=0;k<10;k++)
+		printf("%d ",a[k]);
+	printf("\n");
+}
+
+start syntax analysis
+	      INT   0, 144
+	      SUP   0, main
+	      RET   0, 0
+sort:
+	      INT   0, 40
+	      LDA   1, 20
+	      LOD   1, 12
+	      STX   0, 1
+	      POP   0, 1
+	      LDA   1, 24
+	      LOD   1, 16
+	      STX   0, 1
+	      POP   0, 1
+	      LDA   1, 28
+	      LDA   0, 12
+	      LOD   1, 12
+	      LOD   1, 16
+	     ADDI   0, 0
+	     LITI   0, 2
+	     DIVI   0, 0
+	     LITI   0, 4
+	     MULI   0, 0
+	   OFFSET   0, 0
+	      LDI   0, 1
+	      STX   0, 1
+	      POP   0, 1
+	      INT   0, 12
+	      LDA   0, 92
+	     LITI   0, 4
+	      POP   0, 5
+	     ADDR   0, printf
+	      CAL   0, 0
+L3:
+L5:
+	      LDA   0, 12
+	      LOD   1, 20
+	     LITI   0, 4
+	     MULI   0, 0
+	   OFFSET   0, 0
+	      LDI   0, 1
+	      LOD   1, 28
+	     LSSI   0, 0
+	      JPC   0, L6
+	      LOD   1, 20
+	      LDA   1, 20
+	      LDX   0, 1
+	     INCI   0, 0
+	      STO   0, 1
+	      POP   0, 1
+L4:
+	      JMP   0, L5
+L6:
+L8:
+	      LOD   1, 28
+	      LDA   0, 12
+	      LOD   1, 24
+	     LITI   0, 4
+	     MULI   0, 0
+	   OFFSET   0, 0
+	      LDI   0, 1
+	     LSSI   0, 0
+	      JPC   0, L9
+	      LOD   1, 24
+	      LDA   1, 24
+	      LDX   0, 1
+	     DECI   0, 0
+	      STO   0, 1
+	      POP   0, 1
+L7:
+	      JMP   0, L8
+L9:
+	      LOD   1, 20
+	      LOD   1, 24
+	     LEQI   0, 0
+	      JPC   0, L10
+	      LDA   1, 32
+	      LDA   0, 12
+	      LOD   1, 20
+	     LITI   0, 4
+	     MULI   0, 0
+	   OFFSET   0, 0
+	      LDI   0, 1
+	      STX   0, 1
+	      POP   0, 1
+	      LDA   0, 12
+	      LOD   1, 20
+	     LITI   0, 4
+	     MULI   0, 0
+	   OFFSET   0, 0
+	      LDA   0, 12
+	      LOD   1, 24
+	     LITI   0, 4
+	     MULI   0, 0
+	   OFFSET   0, 0
+	      LDI   0, 1
+	      STX   0, 1
+	      POP   0, 1
+	      LDA   0, 12
+	      LOD   1, 24
+	     LITI   0, 4
+	     MULI   0, 0
+	   OFFSET   0, 0
+	      LOD   1, 32
+	      STX   0, 1
+	      POP   0, 1
+	      LOD   1, 20
+	      LDA   1, 20
+	      LDX   0, 1
+	     INCI   0, 0
+	      STO   0, 1
+	      POP   0, 1
+	      LOD   1, 24
+	      LDA   1, 24
+	      LDX   0, 1
+	     DECI   0, 0
+	      STO   0, 1
+	      POP   0, 1
+L10:
+L2:
+	      LOD   1, 20
+	      LOD   1, 24
+	     LEQI   0, 0
+	      JPT   0, L3
+L1:
+	      LOD   1, 12
+	      LOD   1, 24
+	     LSSI   0, 0
+	      JPC   0, L11
+	      INT   0, 12
+	      LOD   1, 12
+	      LOD   1, 24
+	      POP   0, 5
+	     ADDR   0, sort
+	      CAL   0, 0
+L11:
+	      LOD   1, 20
+	      LOD   1, 16
+	     LSSI   0, 0
+	      JPC   0, L12
+	      INT   0, 12
+	      LOD   1, 20
+	      LOD   1, 16
+	      POP   0, 5
+	     ADDR   0, sort
+	      CAL   0, 0
+L12:
+	      RET   0, 0
+main:
+	      INT   0, 16
+	      LDA   0, 12
+	     LITI   0, 0
+	     LITI   0, 4
+	     MULI   0, 0
+	   OFFSET   0, 0
+	     LITI   0, 0
+	      STX   0, 1
+	      POP   0, 1
+	      LDA   0, 12
+	     LITI   0, 1
+	     LITI   0, 4
+	     MULI   0, 0
+	   OFFSET   0, 0
+	     LITI   0, 1
+	      STX   0, 1
+	      POP   0, 1
+	      LDA   0, 12
+	     LITI   0, 2
+	     LITI   0, 4
+	     MULI   0, 0
+	   OFFSET   0, 0
+	     LITI   0, 3
+	      STX   0, 1
+	      POP   0, 1
+	      LDA   0, 12
+	     LITI   0, 3
+	     LITI   0, 4
+	     MULI   0, 0
+	   OFFSET   0, 0
+	     LITI   0, 5
+	      STX   0, 1
+	      POP   0, 1
+	      LDA   0, 12
+	     LITI   0, 4
+	     LITI   0, 4
+	     MULI   0, 0
+	   OFFSET   0, 0
+	     LITI   0, 7
+	      STX   0, 1
+	      POP   0, 1
+	      LDA   0, 12
+	     LITI   0, 5
+	     LITI   0, 4
+	     MULI   0, 0
+	   OFFSET   0, 0
+	     LITI   0, 9
+	      STX   0, 1
+	      POP   0, 1
+	      LDA   0, 12
+	     LITI   0, 6
+	     LITI   0, 4
+	     MULI   0, 0
+	   OFFSET   0, 0
+	     LITI   0, 2
+	      STX   0, 1
+	      POP   0, 1
+	      LDA   0, 12
+	     LITI   0, 7
+	     LITI   0, 4
+	     MULI   0, 0
+	   OFFSET   0, 0
+	     LITI   0, 4
+	      STX   0, 1
+	      POP   0, 1
+	      LDA   0, 12
+	     LITI   0, 8
+	     LITI   0, 4
+	     MULI   0, 0
+	   OFFSET   0, 0
+	     LITI   0, 6
+	      STX   0, 1
+	      POP   0, 1
+	      LDA   0, 12
+	     LITI   0, 9
+	     LITI   0, 4
+	     MULI   0, 0
+	   OFFSET   0, 0
+	     LITI   0, 8
+	      STX   0, 1
+	      POP   0, 1
+	      LDA   1, 12
+	     LITI   0, 0
+	      STX   0, 1
+	      POP   0, 1
+L14:
+	      LOD   1, 12
+	     LITI   0, 10
+	     LSSI   0, 0
+	      JPC   0, L15
+	      INT   0, 12
+	      LDA   0, 112
+	      LDA   0, 12
+	      LOD   1, 12
+	     LITI   0, 4
+	     MULI   0, 0
+	   OFFSET   0, 0
+	      LDI   0, 1
+	      POP   0, 5
+	     ADDR   0, printf
+	      CAL   0, 0
+L13:
+	      LOD   1, 12
+	      LDA   1, 12
+	      LDX   0, 1
+	     INCI   0, 0
+	      STO   0, 1
+	      POP   0, 1
+	      JMP   0, L14
+L15:
+	      INT   0, 12
+	      LDA   0, 120
+	      POP   0, 4
+	     ADDR   0, printf
+	      CAL   0, 0
+	      INT   0, 12
+	     LITI   0, 0
+	     LITI   0, 9
+	      POP   0, 5
+	     ADDR   0, sort
+	      CAL   0, 0
+	      LDA   1, 12
+	     LITI   0, 0
+	      STX   0, 1
+	      POP   0, 1
+L17:
+	      LOD   1, 12
+	     LITI   0, 10
+	     LSSI   0, 0
+	      JPC   0, L18
+	      INT   0, 12
+	      LDA   0, 128
+	      LDA   0, 12
+	      LOD   1, 12
+	     LITI   0, 4
+	     MULI   0, 0
+	   OFFSET   0, 0
+	      LDI   0, 1
+	      POP   0, 5
+	     ADDR   0, printf
+	      CAL   0, 0
+L16:
+	      LOD   1, 12
+	      LDA   1, 12
+	      LDX   0, 1
+	     INCI   0, 0
+	      STO   0, 1
+	      POP   0, 1
+	      JMP   0, L17
+L18:
+	      INT   0, 12
+	      LDA   0, 136
+	      POP   0, 4
+	     ADDR   0, printf
+	      CAL   0, 0
+	      RET   0, 0
+==================================================
+
+
+======== symbol =========
+   1:  printf	-1
+   2:  malloc	-2
+   3:  scanf	-3
+   4:  sort	3
+   5:  L3	31
+   6:  L5	31
+   7:  L4	46
+   8:  L6	47
+   9:  L8	47
+  10:  L7	62
+  11:  L9	63
+  12:  L10	109
+  13:  L2	109
+  14:  L1	113
+  15:  L11	123
+  16:  L12	133
+  17:  main	134
+  18:  L14	219
+  19:  L13	234
+  20:  L15	241
+  21:  L17	256
+  22:  L16	271
+  23:  L18	278
+========  code ==========
+   0:  INT	0,144
+   1:  SUP	0,134
+   2:  RET	0,0
+   3:  INT	0,40
+   4:  LDA	1,20
+   5:  LOD	1,12
+   6:  STX	0,1
+   7:  POP	0,1
+   8:  LDA	1,24
+   9:  LOD	1,16
+  10:  STX	0,1
+  11:  POP	0,1
+  12:  LDA	1,28
+  13:  LDA	0,12
+  14:  LOD	1,12
+  15:  LOD	1,16
+  16:  ADDI	0,0
+  17:  LITI	0,2
+  18:  DIVI	0,0
+  19:  LITI	0,4
+  20:  MULI	0,0
+  21:  OFFSET	0,0
+  22:  LDI	0,1
+  23:  STX	0,1
+  24:  POP	0,1
+  25:  INT	0,12
+  26:  LDA	0,92
+  27:  LITI	0,4
+  28:  POP	0,5
+  29:  ADDR	0,-1
+  30:  CAL	0,0
+  31:  LDA	0,12
+  32:  LOD	1,20
+  33:  LITI	0,4
+  34:  MULI	0,0
+  35:  OFFSET	0,0
+  36:  LDI	0,1
+  37:  LOD	1,28
+  38:  LSSI	0,0
+  39:  JPC	0,47
+  40:  LOD	1,20
+  41:  LDA	1,20
+  42:  LDX	0,1
+  43:  INCI	0,0
+  44:  STO	0,1
+  45:  POP	0,1
+  46:  JMP	0,31
+  47:  LOD	1,28
+  48:  LDA	0,12
+  49:  LOD	1,24
+  50:  LITI	0,4
+  51:  MULI	0,0
+  52:  OFFSET	0,0
+  53:  LDI	0,1
+  54:  LSSI	0,0
+  55:  JPC	0,63
+  56:  LOD	1,24
+  57:  LDA	1,24
+  58:  LDX	0,1
+  59:  DECI	0,0
+  60:  STO	0,1
+  61:  POP	0,1
+  62:  JMP	0,47
+  63:  LOD	1,20
+  64:  LOD	1,24
+  65:  LEQI	0,0
+  66:  JPC	0,109
+  67:  LDA	1,32
+  68:  LDA	0,12
+  69:  LOD	1,20
+  70:  LITI	0,4
+  71:  MULI	0,0
+  72:  OFFSET	0,0
+  73:  LDI	0,1
+  74:  STX	0,1
+  75:  POP	0,1
+  76:  LDA	0,12
+  77:  LOD	1,20
+  78:  LITI	0,4
+  79:  MULI	0,0
+  80:  OFFSET	0,0
+  81:  LDA	0,12
+  82:  LOD	1,24
+  83:  LITI	0,4
+  84:  MULI	0,0
+  85:  OFFSET	0,0
+  86:  LDI	0,1
+  87:  STX	0,1
+  88:  POP	0,1
+  89:  LDA	0,12
+  90:  LOD	1,24
+  91:  LITI	0,4
+  92:  MULI	0,0
+  93:  OFFSET	0,0
+  94:  LOD	1,32
+  95:  STX	0,1
+  96:  POP	0,1
+  97:  LOD	1,20
+  98:  LDA	1,20
+  99:  LDX	0,1
+ 100:  INCI	0,0
+ 101:  STO	0,1
+ 102:  POP	0,1
+ 103:  LOD	1,24
+ 104:  LDA	1,24
+ 105:  LDX	0,1
+ 106:  DECI	0,0
+ 107:  STO	0,1
+ 108:  POP	0,1
+ 109:  LOD	1,20
+ 110:  LOD	1,24
+ 111:  LEQI	0,0
+ 112:  JPT	0,31
+ 113:  LOD	1,12
+ 114:  LOD	1,24
+ 115:  LSSI	0,0
+ 116:  JPC	0,123
+ 117:  INT	0,12
+ 118:  LOD	1,12
+ 119:  LOD	1,24
+ 120:  POP	0,5
+ 121:  ADDR	0,3
+ 122:  CAL	0,0
+ 123:  LOD	1,20
+ 124:  LOD	1,16
+ 125:  LSSI	0,0
+ 126:  JPC	0,133
+ 127:  INT	0,12
+ 128:  LOD	1,20
+ 129:  LOD	1,16
+ 130:  POP	0,5
+ 131:  ADDR	0,3
+ 132:  CAL	0,0
+ 133:  RET	0,0
+ 134:  INT	0,16
+ 135:  LDA	0,12
+ 136:  LITI	0,0
+ 137:  LITI	0,4
+ 138:  MULI	0,0
+ 139:  OFFSET	0,0
+ 140:  LITI	0,0
+ 141:  STX	0,1
+ 142:  POP	0,1
+ 143:  LDA	0,12
+ 144:  LITI	0,1
+ 145:  LITI	0,4
+ 146:  MULI	0,0
+ 147:  OFFSET	0,0
+ 148:  LITI	0,1
+ 149:  STX	0,1
+ 150:  POP	0,1
+ 151:  LDA	0,12
+ 152:  LITI	0,2
+ 153:  LITI	0,4
+ 154:  MULI	0,0
+ 155:  OFFSET	0,0
+ 156:  LITI	0,3
+ 157:  STX	0,1
+ 158:  POP	0,1
+ 159:  LDA	0,12
+ 160:  LITI	0,3
+ 161:  LITI	0,4
+ 162:  MULI	0,0
+ 163:  OFFSET	0,0
+ 164:  LITI	0,5
+ 165:  STX	0,1
+ 166:  POP	0,1
+ 167:  LDA	0,12
+ 168:  LITI	0,4
+ 169:  LITI	0,4
+ 170:  MULI	0,0
+ 171:  OFFSET	0,0
+ 172:  LITI	0,7
+ 173:  STX	0,1
+ 174:  POP	0,1
+ 175:  LDA	0,12
+ 176:  LITI	0,5
+ 177:  LITI	0,4
+ 178:  MULI	0,0
+ 179:  OFFSET	0,0
+ 180:  LITI	0,9
+ 181:  STX	0,1
+ 182:  POP	0,1
+ 183:  LDA	0,12
+ 184:  LITI	0,6
+ 185:  LITI	0,4
+ 186:  MULI	0,0
+ 187:  OFFSET	0,0
+ 188:  LITI	0,2
+ 189:  STX	0,1
+ 190:  POP	0,1
+ 191:  LDA	0,12
+ 192:  LITI	0,7
+ 193:  LITI	0,4
+ 194:  MULI	0,0
+ 195:  OFFSET	0,0
+ 196:  LITI	0,4
+ 197:  STX	0,1
+ 198:  POP	0,1
+ 199:  LDA	0,12
+ 200:  LITI	0,8
+ 201:  LITI	0,4
+ 202:  MULI	0,0
+ 203:  OFFSET	0,0
+ 204:  LITI	0,6
+ 205:  STX	0,1
+ 206:  POP	0,1
+ 207:  LDA	0,12
+ 208:  LITI	0,9
+ 209:  LITI	0,4
+ 210:  MULI	0,0
+ 211:  OFFSET	0,0
+ 212:  LITI	0,8
+ 213:  STX	0,1
+ 214:  POP	0,1
+ 215:  LDA	1,12
+ 216:  LITI	0,0
+ 217:  STX	0,1
+ 218:  POP	0,1
+ 219:  LOD	1,12
+ 220:  LITI	0,10
+ 221:  LSSI	0,0
+ 222:  JPC	0,241
+ 223:  INT	0,12
+ 224:  LDA	0,112
+ 225:  LDA	0,12
+ 226:  LOD	1,12
+ 227:  LITI	0,4
+ 228:  MULI	0,0
+ 229:  OFFSET	0,0
+ 230:  LDI	0,1
+ 231:  POP	0,5
+ 232:  ADDR	0,-1
+ 233:  CAL	0,0
+ 234:  LOD	1,12
+ 235:  LDA	1,12
+ 236:  LDX	0,1
+ 237:  INCI	0,0
+ 238:  STO	0,1
+ 239:  POP	0,1
+ 240:  JMP	0,219
+ 241:  INT	0,12
+ 242:  LDA	0,120
+ 243:  POP	0,4
+ 244:  ADDR	0,-1
+ 245:  CAL	0,0
+ 246:  INT	0,12
+ 247:  LITI	0,0
+ 248:  LITI	0,9
+ 249:  POP	0,5
+ 250:  ADDR	0,3
+ 251:  CAL	0,0
+ 252:  LDA	1,12
+ 253:  LITI	0,0
+ 254:  STX	0,1
+ 255:  POP	0,1
+ 256:  LOD	1,12
+ 257:  LITI	0,10
+ 258:  LSSI	0,0
+ 259:  JPC	0,278
+ 260:  INT	0,12
+ 261:  LDA	0,128
+ 262:  LDA	0,12
+ 263:  LOD	1,12
+ 264:  LITI	0,4
+ 265:  MULI	0,0
+ 266:  OFFSET	0,0
+ 267:  LDI	0,1
+ 268:  POP	0,5
+ 269:  ADDR	0,-1
+ 270:  CAL	0,0
+ 271:  LOD	1,12
+ 272:  LDA	1,12
+ 273:  LDX	0,1
+ 274:  INCI	0,0
+ 275:  STO	0,1
+ 276:  POP	0,1
+ 277:  JMP	0,256
+ 278:  INT	0,12
+ 279:  LDA	0,136
+ 280:  POP	0,4
+ 281:  ADDR	0,-1
+ 282:  CAL	0,0
+ 283:  RET	0,0
+start execution
+0 1 3 5 7 9 2 4 6 8 
+a[1] size : 4
+a[1] size : 4
+a[1] size : 4
+a[1] size : 4
+a[1] size : 4
+a[1] size : 4
+a[1] size : 4
+a[1] size : 4
+0 1 2 3 4 5 6 7 8 9 
+end execution
+
+
+ ========================= input/input30.c =========================
+------------------------ code ------------------------
+int global_a=3;
+
+int main(){
+
+	int local_b;
+	
+	local_b = global_a;
+	printf("global_a : %d\n",global_a);
+	printf("local_b : %d\n",local_b);
+	return 0;
+}
+
+start syntax analysis
+	      INT   0, 56
+	      SUP   0, main
+	      RET   0, 0
+main:
+	      INT   0, 16
+	      LDA   1, 12
+	      LOD   0, 12
+	      STX   0, 1
+	      POP   0, 1
+	      INT   0, 12
+	      LDA   0, 16
+	      LOD   0, 12
+	      POP   0, 5
+	     ADDR   0, printf
+	      CAL   0, 0
+	      INT   0, 12
+	      LDA   0, 36
+	      LOD   1, 12
+	      POP   0, 5
+	     ADDR   0, printf
+	      CAL   0, 0
+	      LDA   1, -4
+	     LITI   0, 0
+	      STO   0, 1
+	      RET   0, 0
+	      RET   0, 0
+==================================================
+
+
+.syntax error at line 4: near 12
+========  code ==========
+   0:  INT	0,56
+   1:  SUP	0,138961344
+   2:  RET	0,0

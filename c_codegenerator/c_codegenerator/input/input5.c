@@ -11,3 +11,12 @@ int max(int num1, int num2) {
  
    return result; 
 }
+
+int main(){
+
+	int res;
+	res = max(3,5);
+	printf("result : %d",res);
+
+	return 0;
+}

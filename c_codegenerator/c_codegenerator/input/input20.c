@@ -1,5 +1,6 @@
 fun(){
 
-	struct s myvar;
-
+	struct s{
+		int a = 3;
+	};
 }

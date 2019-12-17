@@ -148,7 +148,8 @@ void gen_expression(A_NODE *node)
             gen_expression(node->rlink);
             
             if(node->type->size >1){
-                gen_code_i(LITI, 0, node->llink->type->size);
+                //gen_code_i(LITI, 0, node->llink->type->size);
+		gen_code_i(LITI, 0, 4);
                 gen_code_i(MULI,0,0);
             }
             gen_code_i(OFFSET, 0, 0);
@@ -211,7 +212,8 @@ void gen_expression(A_NODE *node)
             else
                 gen_code_i(LDX,0,1);
             if(isPointerOrArrayType(node->type)){
-                gen_code_i(LITI, 0, node->type->element_type->size);
+                //gen_code_i(LITI, 0, node->type->element_type->size);
+		gen_code_i(LITI, 0, 4);
                 gen_code_i(ADDI,0,0);
             }
             else if(isFloatType(node->type))
@@ -348,12 +350,14 @@ void gen_expression(A_NODE *node)
         case N_EXP_ADD :
             gen_expression(node->llink);
             if(isPointerOrArrayType(node->rlink->type)){
-                gen_code_i(LITI, 0, node->rlink->type->element_type->size);
+                //gen_code_i(LITI, 0, node->rlink->type->element_type->size);
+		gen_code_i(LITI, 0, 4);
                 gen_code_i(MULI, 0, 0);
             }
             gen_expression(node->rlink);
             if(isPointerOrArrayType(node->llink->type)){
-                gen_code_i(LITI, 0, node->llink->type->element_type->size);
+                //gen_code_i(LITI, 0, node->llink->type->element_type->size);
+		gen_code_i(LITI, 0, 4);
                 gen_code_i(MULI, 0, 0);
             }
             if(isFloatType(node->type))
@@ -490,7 +494,8 @@ void gen_expression_left(A_NODE *node)
             gen_expression(node->llink);
             gen_expression(node->rlink);
             if(node->type->size>1){
-                gen_code_i(LITI,0, node->type->size);
+                //gen_code_i(LITI,0, node->type->size);
+		gen_code_i(LITI, 0, 4);
                 gen_code_i(MULI,0,0);
             }
             gen_code_i(OFFSET, 0, 0);
@@ -734,10 +739,17 @@ void gen_statement_list(A_NODE *node, int cont_label, int break_label, A_SWITCH 
 }
 void gen_initializer_global(A_NODE *node, A_TYPE *t, int addr)
 {
-   
+   //fprintf(fout,".global %5d %d ",addr,node->value);
+   gen_code_i(LDA,0,addr);
+   gen_code_i(LITI,0,node->value);
+   gen_code_i(STX,0,0);
+   gen_code_i(POP,0,0);
 }
 void gen_initializer_local(A_NODE *node, A_TYPE *t, int addr)
 {
+   //gen_code_i(LDA,1,addr);
+   //gen_code_i(LITI,0,node->value);
+  // gen_code_i(STO,0,0);
 }
 void gen_declaration_list(A_ID *id)
 {
@@ -827,6 +839,6 @@ void gen_label_number(int i)
 void gen_label_name(char *s)
 {
     fprintf(fout,"%s:\n",s);
-    
+    printf("%s:\n",s);
 }
 
