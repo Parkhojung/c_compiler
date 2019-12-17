@@ -1,10 +1,10 @@
-	      INT   0, 36
+	      INT   0, 28
 	      SUP   0, main
 	      RET   0, 0
-.global    12  0.global    16  0main:
+main:
 	      INT   0, 12
 	      INT   0, 12
-	      LDA   0, 20
+	      LDA   0, 12
 	      POP   0, 4
 	     ADDR   0, printf
 	      CAL   0, 0
@@ -13,4 +13,4 @@
 	      STO   0, 1
 	      RET   0, 0
 	      RET   0, 0
-.literal    20  "hello world\n"
+.literal    12  "hello world\n"

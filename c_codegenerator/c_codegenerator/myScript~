@@ -18,7 +18,7 @@ for i in $(seq 1 $END);
 do
   # file path
   res="./result/result$i.txt"
-  input="./input/input$i.c"  
+  input="input/input$i.c"  
  
 
   # save result into "result_all.txt"

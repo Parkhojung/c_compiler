@@ -1,20 +1,24 @@
-	      INT   0, 56
+	      INT   0, 52
 	      SUP   0, main
 	      RET   0, 0
-.global    12  0main:
-	      INT   0, 16
+main:
+	      INT   0, 20
 	      LDA   1, 12
-	      LOD   0, 12
+	      LDA   1, 16
+	      STX   0, 1
+	      POP   0, 1
+	      LDA   1, 16
+	     LITI   0, 3
 	      STX   0, 1
 	      POP   0, 1
 	      INT   0, 12
-	      LDA   0, 16
-	      LOD   0, 12
+	      LDA   0, 12
+	      LDA   1, 16
 	      POP   0, 5
 	     ADDR   0, printf
 	      CAL   0, 0
 	      INT   0, 12
-	      LDA   0, 36
+	      LDA   0, 32
 	      LOD   1, 12
 	      POP   0, 5
 	     ADDR   0, printf
@@ -24,5 +28,5 @@
 	      STO   0, 1
 	      RET   0, 0
 	      RET   0, 0
-.literal    16  "global_a : %d\n"
-.literal    36  "local_b : %d\n"
+.literal    12  "c address : %d\n "
+.literal    32  "b value : %d\n"

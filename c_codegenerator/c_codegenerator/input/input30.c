@@ -1,11 +1,12 @@
-int global_a=3;
-
 int main(){
 
-	int local_b;
+	int *b;
+	int c;
 	
-	local_b = global_a;
-	printf("global_a : %d\n",global_a);
-	printf("local_b : %d\n",local_b);
+	b = &c;
+	c = 3;
+	printf("c address : %d\n ", &c);
+	printf("b value : %d\n", b);
+
 	return 0;
 }

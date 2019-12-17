@@ -1,12 +1,9 @@
 file start
-2019. 12. 17. (화) 17:30:21 KST
+2019. 12. 17. (화) 17:38:09 KST
 
 
  ========================= input/input1.c =========================
 ------------------------ code ------------------------
-int a = 3;
-int b = 5;
-
 int main(){
  	printf("hello world\n");
 	return 0;
@@ -14,13 +11,13 @@ int main(){
 }
 
 start syntax analysis
-	      INT   0, 36
+	      INT   0, 28
 	      SUP   0, main
 	      RET   0, 0
 main:
 	      INT   0, 12
 	      INT   0, 12
-	      LDA   0, 20
+	      LDA   0, 12
 	      POP   0, 4
 	     ADDR   0, printf
 	      CAL   0, 0
@@ -32,11 +29,29 @@ main:
 ==================================================
 
 
-.syntax error at line 4: near 12
+======== symbol =========
+   1:  printf	-1
+   2:  malloc	-2
+   3:  scanf	-3
+   4:  main	3
 ========  code ==========
-   0:  INT	0,36
-   1:  SUP	0,149598656
+   0:  INT	0,28
+   1:  SUP	0,3
    2:  RET	0,0
+   3:  INT	0,12
+   4:  INT	0,12
+   5:  LDA	0,12
+   6:  POP	0,4
+   7:  ADDR	0,-1
+   8:  CAL	0,0
+   9:  LDA	1,-4
+  10:  LITI	0,0
+  11:  STO	0,1
+  12:  RET	0,0
+  13:  RET	0,0
+start execution
+hello world
+end execution
 
 
  ========================= input/input2.c =========================
@@ -137,7 +152,7 @@ main:
 .syntax error at line 6: near 12
 ========  code ==========
    0:  INT	0,20
-   1:  SUP	0,148488640
+   1:  SUP	0,140370368
    2:  RET	0,0
    3:  INT	0,20
 
@@ -443,18 +458,18 @@ main:
 .syntax error at line 28: near 12
 ========  code ==========
    0:  INT	0,36
-   1:  SUP	0,145232320
+   1:  SUP	0,162656704
    2:  RET	0,0
    3:  INT	0,24
    4:  LOD	1,12
    5:  LOD	1,16
    6:  GTRI	0,0
-   7:  JPC	0,145232352
+   7:  JPC	0,162656736
    8:  LDA	1,20
    9:  LOD	1,12
   10:  STX	0,1
   11:  POP	0,1
-  12:  JMP	0,145232368
+  12:  JMP	0,162656752
   13:  LDA	1,20
   14:  LOD	1,16
   15:  STX	0,1
@@ -746,7 +761,7 @@ main:
 .syntax error at line 6: near 12
 ========  code ==========
    0:  INT	0,24
-   1:  SUP	0,141795776
+   1:  SUP	0,139710912
    2:  RET	0,0
    3:  INT	0,16
 
@@ -1026,7 +1041,7 @@ start syntax analysis
 .syntax error at line 4: near 12
 ========  code ==========
    0:  INT	0,12
-   1:  SUP	0,147542464
+   1:  SUP	0,135352768
    2:  RET	0,0
 
 
@@ -2709,36 +2724,41 @@ end execution
 
  ========================= input/input30.c =========================
 ------------------------ code ------------------------
-int global_a=3;
-
 int main(){
 
-	int local_b;
+	int *b;
+	int c;
 	
-	local_b = global_a;
-	printf("global_a : %d\n",global_a);
-	printf("local_b : %d\n",local_b);
+	b = &c;
+	c = 3;
+	printf("c address : %d\n ", &c);
+	printf("b value : %d\n", b);
+
 	return 0;
 }
 
 start syntax analysis
-	      INT   0, 56
+	      INT   0, 52
 	      SUP   0, main
 	      RET   0, 0
 main:
-	      INT   0, 16
+	      INT   0, 20
 	      LDA   1, 12
-	      LOD   0, 12
+	      LDA   1, 16
+	      STX   0, 1
+	      POP   0, 1
+	      LDA   1, 16
+	     LITI   0, 3
 	      STX   0, 1
 	      POP   0, 1
 	      INT   0, 12
-	      LDA   0, 16
-	      LOD   0, 12
+	      LDA   0, 12
+	      LDA   1, 16
 	      POP   0, 5
 	     ADDR   0, printf
 	      CAL   0, 0
 	      INT   0, 12
-	      LDA   0, 36
+	      LDA   0, 32
 	      LOD   1, 12
 	      POP   0, 5
 	     ADDR   0, printf
@@ -2751,8 +2771,236 @@ main:
 ==================================================
 
 
-.syntax error at line 4: near 12
+======== symbol =========
+   1:  printf	-1
+   2:  malloc	-2
+   3:  scanf	-3
+   4:  main	3
 ========  code ==========
-   0:  INT	0,56
-   1:  SUP	0,138961344
+   0:  INT	0,52
+   1:  SUP	0,3
    2:  RET	0,0
+   3:  INT	0,20
+   4:  LDA	1,12
+   5:  LDA	1,16
+   6:  STX	0,1
+   7:  POP	0,1
+   8:  LDA	1,16
+   9:  LITI	0,3
+  10:  STX	0,1
+  11:  POP	0,1
+  12:  INT	0,12
+  13:  LDA	0,12
+  14:  LDA	1,16
+  15:  POP	0,5
+  16:  ADDR	0,-1
+  17:  CAL	0,0
+  18:  INT	0,12
+  19:  LDA	0,32
+  20:  LOD	1,12
+  21:  POP	0,5
+  22:  ADDR	0,-1
+  23:  CAL	0,0
+  24:  LDA	1,-4
+  25:  LITI	0,0
+  26:  STO	0,1
+  27:  RET	0,0
+  28:  RET	0,0
+start execution
+c address : 68
+ b value : 68
+end execution
+
+
+ ========================= input/input31.c =========================
+------------------------ code ------------------------
+int main(){
+
+	int * a;
+	int b;
+
+	b = 5;
+	*a = &b;
+	
+	printf("b: %d\n",*a);
+
+	return 0;
+}
+
+start syntax analysis
+*** semantic error at line 7: not permitted type casting in expression
+==================================================
+
+
+can not open input file: result/input/input31.c
+
+
+ ========================= input/input32.c =========================
+------------------------ code ------------------------
+can not open input file: input/input32.c
+==================================================
+
+
+can not open input file: result/input/input32.c
+
+
+ ========================= input/input33.c =========================
+------------------------ code ------------------------
+can not open input file: input/input33.c
+==================================================
+
+
+can not open input file: result/input/input33.c
+
+
+ ========================= input/input34.c =========================
+------------------------ code ------------------------
+can not open input file: input/input34.c
+==================================================
+
+
+can not open input file: result/input/input34.c
+
+
+ ========================= input/input35.c =========================
+------------------------ code ------------------------
+can not open input file: input/input35.c
+==================================================
+
+
+can not open input file: result/input/input35.c
+
+
+ ========================= input/input36.c =========================
+------------------------ code ------------------------
+can not open input file: input/input36.c
+==================================================
+
+
+can not open input file: result/input/input36.c
+
+
+ ========================= input/input37.c =========================
+------------------------ code ------------------------
+can not open input file: input/input37.c
+==================================================
+
+
+can not open input file: result/input/input37.c
+
+
+ ========================= input/input38.c =========================
+------------------------ code ------------------------
+can not open input file: input/input38.c
+==================================================
+
+
+can not open input file: result/input/input38.c
+
+
+ ========================= input/input39.c =========================
+------------------------ code ------------------------
+can not open input file: input/input39.c
+==================================================
+
+
+can not open input file: result/input/input39.c
+
+
+ ========================= input/input40.c =========================
+------------------------ code ------------------------
+can not open input file: input/input40.c
+==================================================
+
+
+can not open input file: result/input/input40.c
+
+
+ ========================= input/input41.c =========================
+------------------------ code ------------------------
+can not open input file: input/input41.c
+==================================================
+
+
+can not open input file: result/input/input41.c
+
+
+ ========================= input/input42.c =========================
+------------------------ code ------------------------
+can not open input file: input/input42.c
+==================================================
+
+
+can not open input file: result/input/input42.c
+
+
+ ========================= input/input43.c =========================
+------------------------ code ------------------------
+can not open input file: input/input43.c
+==================================================
+
+
+can not open input file: result/input/input43.c
+
+
+ ========================= input/input44.c =========================
+------------------------ code ------------------------
+can not open input file: input/input44.c
+==================================================
+
+
+can not open input file: result/input/input44.c
+
+
+ ========================= input/input45.c =========================
+------------------------ code ------------------------
+can not open input file: input/input45.c
+==================================================
+
+
+can not open input file: result/input/input45.c
+
+
+ ========================= input/input46.c =========================
+------------------------ code ------------------------
+can not open input file: input/input46.c
+==================================================
+
+
+can not open input file: result/input/input46.c
+
+
+ ========================= input/input47.c =========================
+------------------------ code ------------------------
+can not open input file: input/input47.c
+==================================================
+
+
+can not open input file: result/input/input47.c
+
+
+ ========================= input/input48.c =========================
+------------------------ code ------------------------
+can not open input file: input/input48.c
+==================================================
+
+
+can not open input file: result/input/input48.c
+
+
+ ========================= input/input49.c =========================
+------------------------ code ------------------------
+can not open input file: input/input49.c
+==================================================
+
+
+can not open input file: result/input/input49.c
+
+
+ ========================= input/input50.c =========================
+------------------------ code ------------------------
+can not open input file: input/input50.c
+==================================================
+
+
+can not open input file: result/input/input50.c
