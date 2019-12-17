@@ -28,7 +28,7 @@ void main(){
 	list[3]=1; 
 	list[4]=4;
 
-	//bubble_sort(list, n); // 정렬 결과 출력 
+	bubble_sort(list, n); // 정렬 결과 출력 
 	for(i=0; i<n; i++){ 
 		printf("%d\n", list[i]); 
 	} 

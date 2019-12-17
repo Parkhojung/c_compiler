@@ -1,4 +1,4 @@
-typedef mytype int
+typedef mytype int;
 
 int main(){
 

@@ -144,6 +144,12 @@ main:
 	     LITI   0, 4
 	      STX   0, 1
 	      POP   0, 1
+	      INT   0, 12
+	      LDA   1, 20
+	      LOD   1, 16
+	      POP   0, 5
+	     ADDR   0, bubble_sort
+	      CAL   0, 0
 	      LDA   1, 12
 	     LITI   0, 0
 	      STX   0, 1

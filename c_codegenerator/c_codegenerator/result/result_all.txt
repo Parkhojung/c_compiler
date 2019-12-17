@@ -1,5 +1,5 @@
 file start
-2019. 12. 17. (화) 17:38:09 KST
+2019. 12. 17. (화) 17:45:26 KST
 
 
  ========================= input/input1.c =========================
@@ -152,7 +152,7 @@ main:
 .syntax error at line 6: near 12
 ========  code ==========
    0:  INT	0,20
-   1:  SUP	0,140370368
+   1:  SUP	0,145990080
    2:  RET	0,0
    3:  INT	0,20
 
@@ -375,101 +375,25 @@ result : 5end execution
 
  ========================= input/input6.c =========================
 ------------------------ code ------------------------
-// function returning the max between two numbers 
-int max(int num1, int num2) {
-
-   // local variable declaration 
-   int result;
- 
-   if (num1 > num2)
-      result = num1;
-   else
-      result = num2;
- 
-   return result; 
-}
- 
-int main () {
-
-   // local variable definition 
-   int a = 100;
-   int b = 200;
-   int ret;
- 
-   // calling a function to get max value 
-   ret = max(a, b);
- 
-   printf( "Max value is : %d\n", ret );
- 
-   return 0;
-}
-
-start syntax analysis
-	      INT   0, 36
-	      SUP   0, main
-	      RET   0, 0
-max:
-	      INT   0, 24
-	      LOD   1, 12
-	      LOD   1, 16
-	     GTRI   0, 0
-	      JPC   0, L1
-	      LDA   1, 20
-	      LOD   1, 12
-	      STX   0, 1
-	      POP   0, 1
-	      JMP   0, L2
-L1:
-	      LDA   1, 20
-	      LOD   1, 16
-	      STX   0, 1
-	      POP   0, 1
-L2:
-	      LDA   1, -4
-	      LOD   1, 20
-	      STO   0, 1
-	      RET   0, 0
-	      RET   0, 0
-main:
-	      INT   0, 24
-	      LDA   1, 20
-	      INT   0, 16
-	      LOD   1, 12
-	      LOD   1, 16
-	      POP   0, 5
-	     ADDR   0, max
-	      CAL   0, 0
-	      STX   0, 1
-	      POP   0, 1
-	      INT   0, 12
-	      LDA   0, 12
-	      LOD   1, 20
-	      POP   0, 5
-	     ADDR   0, printf
-	      CAL   0, 0
-	      LDA   1, -4
-	     LITI   0, 0
-	      STO   0, 1
-	      RET   0, 0
-	      RET   0, 0
+can not open input file: input/input6.c
 ==================================================
 
 
 .syntax error at line 28: near 12
 ========  code ==========
    0:  INT	0,36
-   1:  SUP	0,162656704
+   1:  SUP	0,155263424
    2:  RET	0,0
    3:  INT	0,24
    4:  LOD	1,12
    5:  LOD	1,16
    6:  GTRI	0,0
-   7:  JPC	0,162656736
+   7:  JPC	0,155263456
    8:  LDA	1,20
    9:  LOD	1,12
   10:  STX	0,1
   11:  POP	0,1
-  12:  JMP	0,162656752
+  12:  JMP	0,155263472
   13:  LDA	1,20
   14:  LOD	1,16
   15:  STX	0,1
@@ -761,7 +685,7 @@ main:
 .syntax error at line 6: near 12
 ========  code ==========
    0:  INT	0,24
-   1:  SUP	0,139710912
+   1:  SUP	0,137843136
    2:  RET	0,0
    3:  INT	0,16
 
@@ -836,23 +760,7 @@ end execution
 
  ========================= input/input11.c =========================
 ------------------------ code ------------------------
-typedef mytype int
-
-int main(){
-
-	mytype a;
-	int c;
-	
-	a = 3;
-	c = a+2;
-	
-	printf("a: %d\n",a);
-	printf("c=a+2: %d\n",c);
-}
-
-
-start syntax analysis
-line 1: syntax error near int 
+can not open input file: input/input11.c
 ==================================================
 
 
@@ -862,42 +770,7 @@ syntax error at line 1: near
 
  ========================= input/input12.c =========================
 ------------------------ code ------------------------
-union {int a; float b;} myvar;
-
-int main(){
-
-	myvar.a = 3;
-	myvar.b = 3.5;	
-	printf("myvar: %f\n",myvar);
-}
-
-
-start syntax analysis
-	      INT   0, 36
-	      SUP   0, main
-	      RET   0, 0
-main:
-	      INT   0, 12
-	      LDA   0, 12
-	      LDA   0, 12
-	      LDI   0, 1
-	     LITI   0, 3
-	      STX   0, 1
-	      POP   0, 1
-	      LDA   0, 12
-	      LDA   0, 12
-	      LDI   0, 1
-	      LOD   0, 16
-	      STX   0, 1
-	      POP   0, 1
-	      INT   0, 12
-	      LDA   0, 20
-	      LDA   0, 12
-	      LDI   0, 1
-	      POP   0, 5
-	     ADDR   0, printf
-	      CAL   0, 0
-	      RET   0, 0
+can not open input file: input/input12.c
 ==================================================
 
 
@@ -1041,7 +914,7 @@ start syntax analysis
 .syntax error at line 4: near 12
 ========  code ==========
    0:  INT	0,12
-   1:  SUP	0,135352768
+   1:  SUP	0,142762432
    2:  RET	0,0
 
 
@@ -1678,7 +1551,7 @@ void main(){
 	list[3]=1; 
 	list[4]=4;
 
-	//bubble_sort(list, n); // 정렬 결과 출력 
+	bubble_sort(list, n); // 정렬 결과 출력 
 	for(i=0; i<n; i++){ 
 		printf("%d\n", list[i]); 
 	} 
@@ -1831,6 +1704,12 @@ main:
 	     LITI   0, 4
 	      STX   0, 1
 	      POP   0, 1
+	      INT   0, 12
+	      LDA   1, 20
+	      LOD   1, 16
+	      POP   0, 5
+	     ADDR   0, bubble_sort
+	      CAL   0, 0
 	      LDA   1, 12
 	     LITI   0, 0
 	      STX   0, 1
@@ -1877,9 +1756,9 @@ L10:
   10:  L1	79
   11:  L3	86
   12:  main	88
-  13:  L9	141
-  14:  L8	156
-  15:  L10	163
+  13:  L9	147
+  14:  L8	162
+  15:  L10	169
 ========  code ==========
    0:  INT	0,24
    1:  SUP	0,88
@@ -2018,39 +1897,45 @@ L10:
  134:  LITI	0,4
  135:  STX	0,1
  136:  POP	0,1
- 137:  LDA	1,12
- 138:  LITI	0,0
- 139:  STX	0,1
- 140:  POP	0,1
- 141:  LOD	1,12
- 142:  LOD	1,16
- 143:  LSSI	0,0
- 144:  JPC	0,163
- 145:  INT	0,12
- 146:  LDA	0,16
- 147:  LDA	1,20
- 148:  LOD	1,12
- 149:  LITI	0,4
- 150:  MULI	0,0
- 151:  OFFSET	0,0
- 152:  LDI	0,1
- 153:  POP	0,5
- 154:  ADDR	0,-1
- 155:  CAL	0,0
- 156:  LOD	1,12
- 157:  LDA	1,12
- 158:  LDX	0,1
- 159:  INCI	0,0
- 160:  STO	0,1
- 161:  POP	0,1
- 162:  JMP	0,141
- 163:  RET	0,0
+ 137:  INT	0,12
+ 138:  LDA	1,20
+ 139:  LOD	1,16
+ 140:  POP	0,5
+ 141:  ADDR	0,3
+ 142:  CAL	0,0
+ 143:  LDA	1,12
+ 144:  LITI	0,0
+ 145:  STX	0,1
+ 146:  POP	0,1
+ 147:  LOD	1,12
+ 148:  LOD	1,16
+ 149:  LSSI	0,0
+ 150:  JPC	0,169
+ 151:  INT	0,12
+ 152:  LDA	0,16
+ 153:  LDA	1,20
+ 154:  LOD	1,12
+ 155:  LITI	0,4
+ 156:  MULI	0,0
+ 157:  OFFSET	0,0
+ 158:  LDI	0,1
+ 159:  POP	0,5
+ 160:  ADDR	0,-1
+ 161:  CAL	0,0
+ 162:  LOD	1,12
+ 163:  LDA	1,12
+ 164:  LDX	0,1
+ 165:  INCI	0,0
+ 166:  STO	0,1
+ 167:  POP	0,1
+ 168:  JMP	0,147
+ 169:  RET	0,0
 start execution
 7
 5
+4
 3
 1
-4
 end execution
 
 
@@ -2820,7 +2705,7 @@ int main(){
 	int b;
 
 	b = 5;
-	*a = &b;
+	a = &b;
 	
 	printf("b: %d\n",*a);
 
@@ -2828,11 +2713,67 @@ int main(){
 }
 
 start syntax analysis
-*** semantic error at line 7: not permitted type casting in expression
+	      INT   0, 24
+	      SUP   0, main
+	      RET   0, 0
+main:
+	      INT   0, 20
+	      LDA   1, 16
+	     LITI   0, 5
+	      STX   0, 1
+	      POP   0, 1
+	      LDA   1, 12
+	      LDA   1, 16
+	      STX   0, 1
+	      POP   0, 1
+	      INT   0, 12
+	      LDA   0, 12
+	      LOD   1, 12
+	      LDI   0, 1
+	      POP   0, 5
+	     ADDR   0, printf
+	      CAL   0, 0
+	      LDA   1, -4
+	     LITI   0, 0
+	      STO   0, 1
+	      RET   0, 0
+	      RET   0, 0
 ==================================================
 
 
-can not open input file: result/input/input31.c
+======== symbol =========
+   1:  printf	-1
+   2:  malloc	-2
+   3:  scanf	-3
+   4:  main	3
+========  code ==========
+   0:  INT	0,24
+   1:  SUP	0,3
+   2:  RET	0,0
+   3:  INT	0,20
+   4:  LDA	1,16
+   5:  LITI	0,5
+   6:  STX	0,1
+   7:  POP	0,1
+   8:  LDA	1,12
+   9:  LDA	1,16
+  10:  STX	0,1
+  11:  POP	0,1
+  12:  INT	0,12
+  13:  LDA	0,12
+  14:  LOD	1,12
+  15:  LDI	0,1
+  16:  POP	0,5
+  17:  ADDR	0,-1
+  18:  CAL	0,0
+  19:  LDA	1,-4
+  20:  LITI	0,0
+  21:  STO	0,1
+  22:  RET	0,0
+  23:  RET	0,0
+start execution
+b: 5
+end execution
 
 
  ========================= input/input32.c =========================

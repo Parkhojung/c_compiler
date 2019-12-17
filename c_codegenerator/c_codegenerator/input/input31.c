@@ -4,7 +4,7 @@ int main(){
 	int b;
 
 	b = 5;
-	*a = &b;
+	a = &b;
 	
 	printf("b: %d\n",*a);
 
